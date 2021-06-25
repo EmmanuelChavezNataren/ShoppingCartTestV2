@@ -1,0 +1,36 @@
+.welcome-img ion-img {
+    object-fit: cover;
+    padding-top: 1.457rem;
+}
+
+.title-on-boarding {
+    padding-bottom: 0.625rem;
+    padding-left: 1.5rem;
+    padding-right: 1.063rem;
+    padding-top: 0.625rem;
+}
+
+.title-on-boarding ion-label {
+    color: var(--ion-color-secondary);
+    font-family: "Raleway-Bold";
+    font-size: 35px;
+    line-height: 41.09px;
+    white-space: pre-wrap;
+}
+
+.welcome-message-on-boarding {
+    padding-left: 1.5rem;
+    padding-right: 2.625rem;
+}
+
+.welcome-message-on-boarding ion-label {
+    color: var(--ion-color-secondary);
+    font-family: "Raleway";
+    font-size: 18px;
+    line-height: 21.13px;
+    white-space: pre-wrap;
+}
+
+.start-on-boarding {
+    padding-top: 1.438rem;
+}
