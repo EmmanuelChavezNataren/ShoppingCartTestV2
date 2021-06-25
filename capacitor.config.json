@@ -1,0 +1,6 @@
+{
+    "appId": "com.virket.shopping-cart-test",
+    "appName": "ShoppingCartTestV2",
+    "webDir": "www",
+    "bundledWebRuntime": false
+}
