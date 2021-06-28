@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 
 /**
- * clase que obtiene las rutas de los servicios web.
+ * Clase que obtiene los endpoints.
  * @author Emmanuel Ch&aacute;vez
  */
 @Injectable({

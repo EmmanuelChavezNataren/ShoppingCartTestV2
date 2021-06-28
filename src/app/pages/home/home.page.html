@@ -4,7 +4,7 @@
             <ion-avatar slot="start">
                 <img [src]="userProfile?.picture.thumbnail" />
             </ion-avatar>
-            <ion-label>{{'WELCOME_BACK' | translate }}, {{ userProfile?.fullName | split: " ": 0 }}</ion-label>
+            <ion-label>{{'WELCOME_LBL' | translate }}, {{ userProfile?.fullName | split: " ": 0 }}</ion-label>
             <ion-button class="search-icon" fill="clear">
                 <ion-icon color="dark" slot="end" name="search"></ion-icon>
             </ion-button>

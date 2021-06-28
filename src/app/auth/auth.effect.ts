@@ -13,6 +13,9 @@ export class AuthEffect {
         private apiSource: ApiInteractionService
     ) { }
 
+    /**
+     * Efecto para consultar API getUserProfile()
+     */
     loadUser$ = createEffect(() => {
         return this.actions$.pipe(
             ofType(fromAuth.loadUser),

@@ -8,6 +8,10 @@ import { UserInfo } from 'os';
 import { User } from '../models/user.model';
 import { Observable } from 'rxjs';
 
+/**
+ * Clase para concentrar la interacci&oacute;n con los endpoints
+ * @author Emmanuel Ch&aacute;vez
+ */
 @Injectable({
   providedIn: 'root'
 })
@@ -19,8 +23,8 @@ export class ApiInteractionService {
 
 
   /**
-* M&eacute;todo que obtienene la informaci&oaute;n del perfil de usuario mediante una API.
-* @returns Regresa una promesa con el objeto del perfil del usuario
+* M&eacute;todo que obtienene la informaci&oacute;n del perfil de usuario mediante una API.
+* @returns Regresa un Observable con el objeto del perfil del usuario
 */
   getUserProfile(): Observable<User> {
     return this.service.doGet(ResourcesService.userProfile)

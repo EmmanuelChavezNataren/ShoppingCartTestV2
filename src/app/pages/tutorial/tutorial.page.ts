@@ -5,6 +5,7 @@ import { AppComponent } from '../../app.component';
 import { UtilitiesService } from '../../services/utilities.service';
 import { ActivatedRoute, Router, Routes } from '@angular/router';
 
+
 @Component({
   selector: 'app-tutorial',
   templateUrl: './tutorial.page.html',
