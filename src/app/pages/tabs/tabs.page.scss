@@ -1,0 +1,10 @@
+ion-tabs {
+    background: var(--ion-color-tertiary);
+}
+
+ion-tab-bar {
+    --background: var(--ion-color-primary-contrast);
+    border-radius: 20px 20px 0px 0px;
+    height: 2.938rem;
+    justify-content: space-around;
+}

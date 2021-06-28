@@ -4,6 +4,11 @@ import { AppState } from '../../app.reducer';
 import { Store } from '@ngrx/store';
 import { User } from '../../models/user.model';
 
+/**
+ * Clase que contiene l&oacute;gica de la pantalq de inicio
+ * Lista de Productos y Ofertas del d&iacute;a
+ * @author Emmanuel Ch&aacute;vez
+ */
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',

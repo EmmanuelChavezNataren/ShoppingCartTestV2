@@ -5,7 +5,7 @@ import { AlertController, LoadingController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 
 /**
- * Clase para declarar logica de utileria  para toda la aplicacion
+ * Clase para declarar l&oacute;gica de utileria  para toda la aplicaci&oacute;n
  * @author Emmanuel Ch&aacute;vez
  *  */
 @Injectable({

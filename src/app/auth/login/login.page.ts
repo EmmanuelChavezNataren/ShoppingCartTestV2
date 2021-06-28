@@ -8,6 +8,10 @@ import { AppState } from '../../app.reducer';
 import { User } from '../../models/user.model';
 import * as fromAuth from '../auth.actions';
 
+/**
+ * Clase para manejar la l&oacute;gica del Login
+ * @author Emmanuel Ch&aacute;vez
+ */
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
@@ -24,10 +28,14 @@ export class LoginPage implements OnInit {
     private store: Store<AppState>) {
   }
 
+
   ngOnInit() {
     this.es();
   }
 
+  /**
+   * M&eacute;todo que precarga el perfil del usuario mediante una acci&oacute;n
+   */
   async ionViewDidEnter() {
     localStorage.setItem(StorageEnum.TOKEN_LOGIN, 'false');
       await this.utilities.showLoader();      
@@ -37,7 +45,8 @@ export class LoginPage implements OnInit {
           this.userProfile = user;
           console.log('UserProfile ', this.userProfile);
           this.utilities.hideLoader();
-          });        
+          });
+      //Ejecuci&oacute;n de acci&oacute;n loadUser()       
       this.store.dispatch(fromAuth.loadUser());    
 
   }
@@ -59,7 +68,10 @@ export class LoginPage implements OnInit {
     this.appComponent.initTranslate('en');
   }
 
-
+  /**
+   * M&eacute;todo que realiza el inicio de sesi&oacute;n.
+   * Redirige a Inicio
+   */
   login() {
     localStorage.setItem(StorageEnum.TOKEN_LOGIN, 'true');
     this.utilities.showLoader();    
