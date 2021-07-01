@@ -17,7 +17,7 @@ export const productsInitialState: ProductsState = {
     error: null
 };
 
-const _productsReducer = createReducer(
+const productsReducer = createReducer(
     productsInitialState,
     on(fromProducts.loadAllProducts, (state) => ({ ...state })),
 
@@ -35,7 +35,7 @@ const _productsReducer = createReducer(
     })),
 );
 
-export function productsReducer(state: ProductsState | undefined, action: Action) {
-    return _productsReducer(state, action);
+export function reducer(state: ProductsState | undefined, action: Action) {
+    return productsReducer(state, action);
 }
 

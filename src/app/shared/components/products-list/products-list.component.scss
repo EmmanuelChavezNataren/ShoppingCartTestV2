@@ -1,12 +1,12 @@
 ion-card.products-card {
-    border-radius: 10px;
+    border-radius: 0.625rem;
     margin: 0;
     width: 94.34%;
     height: 97.71%;
 }
 
 ion-card-header.products-header-card {
-    padding: 4px 15px 0px 16px;
+    padding: 0.25rem 0.9375rem 0 1rem;
 }
 
 ion-card-content.product-content-card {
@@ -16,16 +16,16 @@ ion-card-content.product-content-card {
 
 ion-card-subtitle.product-brand {
     font-family: 'Poppins-Medium';
-    font-size: 10px;
-    line-height: 15px;
+    font-size: 0.625rem;
+    line-height: 0.9375rem;
     color: var(--ion-text-color-shade);
 }
 
 ion-card-title.product-name {
     margin: 0;
     font-family: 'Poppins-Medium';
-    font-size: 12px;
-    line-height: 18px;
+    font-size: 0.75rem;
+    line-height: 1.125rem;
     color: var(--ion-text-color-tint);
 }
 
@@ -67,7 +67,7 @@ div.product-img-div {
 ion-grid.products-grid-parent {
     padding-left: 0;
     padding-right: 0;
-    padding-top: 42px;
+    padding-top: 2.625rem;
 }
 
 ion-item.product-header {
@@ -85,7 +85,7 @@ div.product-favorite-dv {
 
 ion-col.product-favorite-icon-col {
     padding: 0;
-    height: 18px;
+    height: 1.125rem;
     display: flex;
     align-content: space-around;
     flex-wrap: wrap;
@@ -147,8 +147,8 @@ ion-item.product-price-item {
 
 ion-label.product-price {
     font-family: 'Poppins-Bold';
-    font-size: 14px;
-    line-height: 21px;
+    font-size: 0.875rem;
+    line-height: 1.3125rem;
     white-space: pre-wrap;
     margin: 0%;
 }
@@ -174,11 +174,7 @@ ion-grid.product-img-grd {
 }
 
 ion-grid.card-footer-grd {
-    padding-bottom: 0;
-    height: 38%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 0.25rem 0 0 1rem;
 }
 
 ion-row.card-footer-row {

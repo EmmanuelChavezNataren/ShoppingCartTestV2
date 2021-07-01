@@ -1,14 +1,13 @@
-import { SharedModule } from './../../shared/shared.module';
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
-import { TutorialPageRoutingModule } from './tutorial-routing.module';
-
-import { TutorialPage } from './tutorial.page';
 import { TranslateModule } from '@ngx-translate/core';
+
+import { SharedModule } from './../../shared/shared.module';
+import { TutorialPageRoutingModule } from './tutorial-routing.module';
+import { TutorialPage } from './tutorial.page';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,7 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
     TutorialPageRoutingModule,
     TranslateModule,
     SharedModule
+
   ],
   declarations: [TutorialPage],
 })
-export class TutorialPageModule {}
+export class TutorialPageModule { }

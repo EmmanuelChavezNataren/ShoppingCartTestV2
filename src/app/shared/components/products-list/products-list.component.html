@@ -8,7 +8,6 @@
                             <ion-card class="products-card">
                                 <ion-card-header class="products-header-card">
                                     <ion-card-subtitle class="product-brand">{{ product.brand }}</ion-card-subtitle>
-                                    <!--ion-item class="product-header"-->
                                     <ion-grid class="product-header-grd">
                                         <ion-row>
                                             <ion-col size="10" class="product-name-col">
@@ -21,7 +20,8 @@
                                             <ion-col class="product-favorite-icon-col" size="2">
                                                 <div class="product-favorite-dv">
                                                     <ion-button class="product-favorite-btn" slot="end" fill="clear">
-                                                        <ion-icon color="danger" slot="icon-only" name="heart-circle"></ion-icon>
+                                                        <ion-icon color="danger" slot="icon-only" name="heart-circle">
+                                                        </ion-icon>
                                                     </ion-button>
                                                 </div>
 
@@ -29,7 +29,6 @@
 
                                         </ion-row>
                                     </ion-grid>
-                                    <!--/ion-item-->
                                 </ion-card-header>
                                 <ion-card-content class="product-content-card">
                                     <ion-grid class="product-img-grd">
@@ -39,14 +38,13 @@
                                                     <div class="polygon"></div>
                                                 </div>
                                                 <div class="product-img-div">
-                                                    <ion-img class="product-img-picture" [src]="product.product_image"></ion-img>
+                                                    <ion-img class="product-img-picture" [src]="product.product_image">
+                                                    </ion-img>
                                                 </div>
                                             </ion-col>
                                         </ion-row>
                                     </ion-grid>
-                                    <ion-grid class="ard-footer-grd">
-                                        <!--ion-row class="card-footer-row">
-                                            <ion-col class="card-footer-col"-->
+                                    <ion-grid class="card-footer-grd">
                                         <ion-row>
                                             <ion-col size="9" class="product-price-col">
                                                 <ion-item class="product-price-item">
@@ -58,16 +56,19 @@
                                         <ion-row>
                                             <ion-col size="9" class="rating-list-col">
                                                 <ion-list class="rating-list">
-                                                    <ion-icon color="warning" slot="start" [name]="product.score >= 1 ? 'star' : 'star-outline'"></ion-icon>
-                                                    <ion-icon color="warning" slot="start" [name]="product.score >= 2 ? 'star' : 'star-outline'"></ion-icon>
-                                                    <ion-icon color="warning" slot="start" [name]="product.score >= 3 ? 'star' : 'star-outline'"></ion-icon>
-                                                    <ion-icon color="warning" slot="start" [name]="product.score >= 4 ? 'star' : 'star-outline'"></ion-icon>
-                                                    <ion-icon color="warning" slot="start" [name]="product.score >= 5 ? 'star' : 'star-outline'"></ion-icon>
+                                                    <ion-icon color="warning" slot="start" [name]="product.score >= 1 ? 'star' : 'star-outline'">
+                                                    </ion-icon>
+                                                    <ion-icon color="warning" slot="start" [name]="product.score >= 2 ? 'star' : 'star-outline'">
+                                                    </ion-icon>
+                                                    <ion-icon color="warning" slot="start" [name]="product.score >= 3 ? 'star' : 'star-outline'">
+                                                    </ion-icon>
+                                                    <ion-icon color="warning" slot="start" [name]="product.score >= 4 ? 'star' : 'star-outline'">
+                                                    </ion-icon>
+                                                    <ion-icon color="warning" slot="start" [name]="product.score >= 5 ? 'star' : 'star-outline'">
+                                                    </ion-icon>
                                                 </ion-list>
                                             </ion-col>
                                         </ion-row>
-                                        <!--/ion-col>
-                                        </!--ion-row-->
                                     </ion-grid>
                                 </ion-card-content>
                             </ion-card>

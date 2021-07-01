@@ -4,10 +4,6 @@ import { Toast } from '@ionic-native/toast/ngx';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 
-/**
- * Clase para declarar l&oacute;gica de utileria  para toda la aplicaci&oacute;n
- * @author Emmanuel Ch&aacute;vez
- *  */
 @Injectable({
   providedIn: 'root'
 })
@@ -46,9 +42,9 @@ export class UtilitiesService {
  */
   networkStatus(on?: () => void) {
 
-    let title: string = this.translate("NETWORK_ERROR");
-    let description: string = this.translate("NETWORK_MESSAGE");
-    let button: string = this.translate("BUTTON_OK");
+    let title: string = this.translate("networkError");
+    let description: string = this.translate("networkMessage");
+    let button: string = this.translate("buttonOk");
 
     if (this.network.type) {
       if (this.network.type !== "none") {
@@ -98,7 +94,7 @@ export class UtilitiesService {
 
     if (this.isNull(message) && this.isNull(messageKey)) {
       defaultMessage = 'Cargando...'
-      messageKey = this.translate('LOADING_MESSAGE');
+      messageKey = this.translate('loadingMessage');
     }
 
     if (messageKey) {
@@ -185,9 +181,9 @@ export class UtilitiesService {
   setTimeoutLoader(): NodeJS.Timeout {
     localStorage.setItem("isTimeOutError", "false");
     return setTimeout(() => {
-      this.showBasicAlert(this.translate('NETWORK_ERROR'),
-        this.translate('NETWORK_MESSAGE'),
-        this.translate('BUTTON_OK'));
+      this.showBasicAlert(this.translate('networkError'),
+        this.translate('networkMessage'),
+        this.translate('buttonOk'));
       localStorage.setItem("isTimeOutError", "true");
       this.loadingCtrl.dismiss();
       this.isLoading = false;

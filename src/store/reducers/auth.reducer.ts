@@ -15,7 +15,7 @@ export const userInitialState: UserState = {
     error: null
 };
 
-const _userReducer = createReducer(
+const userReducer = createReducer(
     userInitialState,
     on(fromAuth.loadUser, (state) => ({ ...state })),
 
@@ -32,6 +32,6 @@ const _userReducer = createReducer(
     })),
 );
 
-export function userReducer(state: UserState, action: Action) {
-    return _userReducer(state, action);
+export function reducer(state: UserState, action: Action) {
+    return userReducer(state, action);
 }

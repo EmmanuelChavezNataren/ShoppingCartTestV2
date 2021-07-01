@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { CanLoad, Router} from '@angular/router';
+import { CanLoad, Router } from '@angular/router';
 import { StorageEnum } from 'src/app/models/enums/storage.enum';
 
 @Injectable({
@@ -7,20 +7,17 @@ import { StorageEnum } from 'src/app/models/enums/storage.enum';
 })
 export class TutorialGuard implements CanLoad {
 
-  constructor(private router: Router){}
+  constructor(private router: Router) { }
 
-   async canLoad(): Promise<boolean> {     
+  async canLoad(): Promise<boolean> {
     const hasSeenTutorial = localStorage.getItem(StorageEnum.TUTORIAL_KEY);
-    console.log('CanLoad: ', hasSeenTutorial);
 
-    if(hasSeenTutorial && (hasSeenTutorial === 'true')){
-      console.log('hasSeenTutorial true');      
+    if (hasSeenTutorial && (hasSeenTutorial === 'true')) {
       return true;
-    }else{
-      console.log('hasSeenTutorial false');
+    } else {
       this.router.navigateByUrl('/tutorial', { replaceUrl: true });
       return true;
     }
   }
-  
+
 }

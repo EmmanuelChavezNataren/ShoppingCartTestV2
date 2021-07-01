@@ -64,11 +64,11 @@ ion-button {
 }
 
 ion-button.primary-buttons {
-    --box-shadow: 0px 8px 15px rgba(var(--ion-color-primary-rgb), 0.5);
+    --box-shadow: 0 0.5rem 0.9375rem rgba(var(--ion-color-primary-rgb), 0.5);
     font-family: "Raleway-Bold";
-    font-size: 18px;
+    font-size: 1.125rem;
     height: 3.438rem;
-    line-height: 21px;
+    line-height: 1.3125rem;
     margin: 0;
     padding-left: 3.375rem;
     padding-right: 3.375rem;
@@ -79,9 +79,9 @@ ion-button.secondary-buttons {
     --border-width: thin;
     --box-shadow: none;
     font-family: "Raleway-Bold";
-    font-size: 18px;
+    font-size: 1.125rem;
     height: 3.438rem;
-    line-height: 21px;
+    line-height: 1.3125rem;
     margin: 0;
     padding-left: 3.375rem;
     padding-right: 3.375rem;

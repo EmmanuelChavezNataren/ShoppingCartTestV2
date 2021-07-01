@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../../models/user.model';
-import { AppState } from '../../../store/app.reducer';
-import { Store } from '@ngrx/store';
 import { Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+
+import { AppState } from '../../../store/app.reducer';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-profile',
@@ -18,19 +19,18 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
     this.store.select('auth').subscribe(
-      ({ user }) => {          
-       this.userProfile = user;
-       console.log('UserProfile ', this.userProfile);
-       });  
+      ({ user }) => {
+        this.userProfile = user;
+      });
   }
 
-  logout(){
+  logout() {
     this.router.navigateByUrl('/login', { replaceUrl: true });
   }
 
-  goToFavorites(){
+  goToFavorites() {
 
-    this.router.navigateByUrl('/profile/favorites',{ replaceUrl: true});
+    this.router.navigateByUrl('/profile/favorites', { replaceUrl: true });
   }
 
 }

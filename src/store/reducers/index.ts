@@ -1,2 +1,2 @@
-export * from './auth.reducer';
-export * from './product.reducer';
+export * as fromAuth from './auth.reducer';
+export * as fromProduct from './product.reducer';
