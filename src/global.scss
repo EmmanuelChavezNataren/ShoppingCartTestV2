@@ -18,16 +18,7 @@
 
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
-@import "~@ionic/angular/css/typography.css";
 @import "~@ionic/angular/css/display.css";
-
-/* Optional CSS utils that can be commented out */
-
-@import "~@ionic/angular/css/padding.css";
-@import "~@ionic/angular/css/float-elements.css";
-@import "~@ionic/angular/css/text-alignment.css";
-@import "~@ionic/angular/css/text-transformation.css";
-@import "~@ionic/angular/css/flex-utils.css";
 @font-face {
     font-family: "Raleway";
     src: url(./assets/fonts/Raleway/static/Raleway-Regular.ttf);
@@ -45,21 +36,22 @@
 @font-face {
     font-family: "Poppins-Medium";
     src: url(./assets/fonts/Poppins/Poppins-Medium.ttf);
-    font-style: medim;
+    font-style: medium;
+    font-weight: 500;
 }
 
 @font-face {
     font-family: "Poppins-Bold";
     src: url(./assets/fonts/Poppins/Poppins-Bold.ttf);
     font-style: normal;
-    font-weight: bold;
+    font-weight: 700;
 }
 
 @font-face {
     font-family: "Poppins";
     src: url(./assets/fonts/Poppins/Poppins-Regular.ttf);
     font-style: normal;
-    font-weight: normal;
+    font-weight: 400;
 }
 
 ion-content {
@@ -72,13 +64,30 @@ ion-button {
 }
 
 ion-button.primary-buttons {
-    --box-shadow: 0px 8px 15px rgba(var(--ion-color-primary-rgb), 0.5);
+    --box-shadow: 0 0.5rem 0.9375rem rgba(var(--ion-color-primary-rgb), 0.5);
     font-family: "Raleway-Bold";
-    font-size: 18px;
+    font-size: 1.125rem;
     height: 3.438rem;
-    line-height: 21px;
+    line-height: 1.3125rem;
     margin: 0;
     padding-left: 3.375rem;
     padding-right: 3.375rem;
     white-space: pre-wrap;
+}
+
+ion-button.secondary-buttons {
+    --border-width: thin;
+    --box-shadow: none;
+    font-family: "Raleway-Bold";
+    font-size: 1.125rem;
+    height: 3.438rem;
+    line-height: 1.3125rem;
+    margin: 0;
+    padding-left: 3.375rem;
+    padding-right: 3.375rem;
+    white-space: pre-wrap;
+}
+
+ion-toolbar {
+    --background: var(--ion-color-tertiary);
 }

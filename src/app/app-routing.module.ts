@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: () => import('./auth/login/login.module').then( m => m.LoginPageModule),
     canLoad: [TutorialGuard]
   },
+  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+  },
 ];
 @NgModule({
   imports: [

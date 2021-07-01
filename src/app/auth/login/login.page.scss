@@ -13,24 +13,11 @@
 
 .welcome-back {
     font-family: "Raleway";
-    font-size: 18px;
+    font-size: 1.1rem;
     margin-bottom: 3.688rem;
     text-align: center;
 }
 
 .login-buttons ion-row {
     margin-bottom: 1.563rem;
-}
-
-ion-button.secondary-buttons {
-    --border-width: thin;
-    --box-shadow: none;
-    font-family: "Raleway-Bold";
-    font-size: 18px;
-    height: 3.438rem;
-    line-height: 21px;
-    margin: 0;
-    padding-left: 3.375rem;
-    padding-right: 3.375rem;
-    white-space: pre-wrap;
 }

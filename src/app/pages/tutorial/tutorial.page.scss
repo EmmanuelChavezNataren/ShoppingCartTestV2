@@ -11,23 +11,22 @@
 }
 
 .title-on-boarding ion-label {
-    color: var(--ion-color-secondary);
     font-family: "Raleway-Bold";
-    font-size: 35px;
-    line-height: 41.09px;
+    font-size: 2.1875rem;
+    line-height: 2.5625rem;
     white-space: pre-wrap;
 }
 
 .welcome-message-on-boarding {
+    padding-bottom: 1.438rem;
     padding-left: 1.5rem;
     padding-right: 2.625rem;
 }
 
 .welcome-message-on-boarding ion-label {
-    color: var(--ion-color-secondary);
     font-family: "Raleway";
-    font-size: 18px;
-    line-height: 21.13px;
+    font-size: 1.125rem;
+    line-height: 1.3125rem;
     white-space: pre-wrap;
 }
 

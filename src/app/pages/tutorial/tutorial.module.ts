@@ -1,14 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
 import { IonicModule } from '@ionic/angular';
-
-import { TutorialPageRoutingModule } from './tutorial-routing.module';
-
-import { TutorialPage } from './tutorial.page';
 import { TranslateModule } from '@ngx-translate/core';
-import { LogoHeaderModule } from '../../shared/logo-header/logo-header.module';
+
+import { SharedModule } from './../../shared/shared.module';
+import { TutorialPageRoutingModule } from './tutorial-routing.module';
+import { TutorialPage } from './tutorial.page';
 
 @NgModule({
   imports: [
@@ -17,8 +15,9 @@ import { LogoHeaderModule } from '../../shared/logo-header/logo-header.module';
     IonicModule,
     TutorialPageRoutingModule,
     TranslateModule,
-    LogoHeaderModule
+    SharedModule
+
   ],
   declarations: [TutorialPage],
 })
-export class TutorialPageModule {}
+export class TutorialPageModule { }

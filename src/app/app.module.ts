@@ -10,13 +10,15 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+import { appReducers } from '../store/app.reducer';
+import { EffectsArray } from '../store/effects';
 import { environment } from './../environments/environment.prod';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EffectsArray } from './app.effect';
-import { appReducers } from './app.reducer';
-import { SplitPipe } from './pipes/split.pipe';
 import { PipesModule } from './pipes/pipes.module';
+
+
 
 
 export function createTranslateLoader(http: HttpClient) {

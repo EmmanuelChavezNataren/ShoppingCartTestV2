@@ -1,0 +1,18 @@
+<ion-header class="ion-no-padding ion-text-center ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button [routerLink]="['/profile']" icon="chevron-back-outline" text=""></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{ 'favorites' | translate }}</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <app-products-list [products]="allFavoriteProducts"></app-products-list>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" [routerLink]="['/tabs', 'filter-brands']">
+        <ion-fab-button>
+            <ion-icon class="add-favorite" name="add"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

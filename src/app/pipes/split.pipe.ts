@@ -1,10 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-/**
- * Clase de tipo Pipe que implementa la l&oacute; del pipe Split 
- * para separar cadenas en un array
- * @author Emmanuel Ch&aacute;vez
- */
 @Pipe({
   name: 'split'
 })

@@ -1,10 +1,10 @@
 <ion-content>
     <ion-toolbar>
         <ion-item class="ion-no-padding" lines="none">
-            <ion-avatar slot="start">
+            <ion-avatar slot="start" [routerLink]="['/', 'profile']">
                 <img [src]="userProfile?.picture.thumbnail" />
             </ion-avatar>
-            <ion-label>{{'WELCOME_LBL' | translate }}, {{ userProfile?.fullName | split: " ": 0 }}</ion-label>
+            <ion-label [routerLink]="['/', 'profile']">{{'welcomeLbl' | translate }}, {{ userProfile?.fullName | split: " ": 0 }}</ion-label>
             <ion-button class="search-icon" fill="clear">
                 <ion-icon color="dark" slot="end" name="search"></ion-icon>
             </ion-button>
