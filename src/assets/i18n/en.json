@@ -24,6 +24,7 @@
     "NETWORK_MESSAGE": "Please check your internet connection and try again.",
     "NO": "No",
     "PROCEED_PAYMENT": "Proceed to payment",
+    "PROFILE": "My Profile",
     "REVIEWS": "Reviews",
     "SELECT_BRAND": "Select the brand",
     "SEND_EMAIL": "Do you want to send the error to support?",
@@ -35,5 +36,7 @@
     "WELCOME_HEADER": "Find the best hearing aids",
     "WELCOME_LBL": "Welcome",
     "WELCOME_MESSAGE": "Find and buy the best hearing aids from the best brands at the reach of your mobile",
-    "YES": "Yes"
+    "YES": "Yes",
+    "MY_FAVORITES": "My favorite products",
+    "FAVORITES": "Favorites"
 }

@@ -1,0 +1,191 @@
+ion-card.products-card {
+    border-radius: 10px;
+    margin: 0;
+    width: 94.34%;
+    height: 97.71%;
+}
+
+ion-card-header.products-header-card {
+    padding: 4px 15px 0px 16px;
+}
+
+ion-card-content.product-content-card {
+    padding: 0;
+    height: 80%;
+}
+
+ion-card-subtitle.product-brand {
+    font-family: 'Poppins-Medium';
+    font-size: 10px;
+    line-height: 15px;
+    color: var(--ion-text-color-shade);
+}
+
+ion-card-title.product-name {
+    margin: 0;
+    font-family: 'Poppins-Medium';
+    font-size: 12px;
+    line-height: 18px;
+    color: var(--ion-text-color-tint);
+}
+
+ion-grid.product-header-grd {
+    padding: 0;
+    --min-height: 0px;
+}
+
+ion-col.product-name-col {
+    padding: 0;
+    align-self: center;
+}
+
+ion-item {
+    --border-width: 0;
+    --inner-border-width: 0;
+    --padding-start: 0;
+    --inner-padding-end: 0;
+}
+
+ion-col.product-img {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+
+ion-img.product-img-picture {
+    transform: rotate(25deg);
+    z-index: 1;
+}
+
+div.product-img-div {
+    display: flex;
+    width: 36.7%;
+    height: 105%;
+    margin: 0;
+}
+
+ion-grid.products-grid-parent {
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 42px;
+}
+
+ion-item.product-header {
+    --min-height: 0px;
+}
+
+ion-button.product-favorite-btn {
+    margin: 0;
+}
+
+div.product-favorite-dv {
+    display: flex;
+    justify-content: center;
+}
+
+ion-col.product-favorite-icon-col {
+    padding: 0;
+    height: 18px;
+    display: flex;
+    align-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+div.container-polygon {
+    position: absolute;
+    z-index: 1;
+    top: 18%;
+    left: 26%;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.polygon {
+    position: relative;
+    background-color: var(--ion-color-primary);
+    opacity: .1;
+    text-align: left;
+}
+
+.polygon:before,
+.polygon:after {
+    content: '';
+    position: absolute;
+    background-color: inherit;
+}
+
+.polygon,
+.polygon:before,
+.polygon:after {
+    width: 3.0rem;
+    height: 3.0rem;
+    margin: 0 auto;
+    border-top-right-radius: 46%;
+}
+
+.polygon {
+    transform: rotate(42deg) skewX(-30deg) scale(1, .866);
+}
+
+.polygon:before {
+    transform: rotate(-135deg) skewX(-45deg) scale(1.414, .707) translate(0, -50%);
+}
+
+.polygon:after {
+    transform: rotate(135deg) skewY(-45deg) scale(.707, 1.414) translate(50%);
+}
+
+ion-col.products-card-col {
+    height: fit-content;
+}
+
+ion-item.product-price-item {
+    --min-height: 0;
+}
+
+ion-label.product-price {
+    font-family: 'Poppins-Bold';
+    font-size: 14px;
+    line-height: 21px;
+    white-space: pre-wrap;
+    margin: 0%;
+}
+
+ion-col.product-price-col {
+    padding: 0;
+}
+
+ion-list.rating-list {
+    padding: 0;
+}
+
+ion-col.rating-list-col {
+    padding: 0;
+}
+
+ion-col.product-price-col {
+    padding: 0;
+}
+
+ion-grid.product-img-grd {
+    height: 60%;
+}
+
+ion-grid.card-footer-grd {
+    padding-bottom: 0;
+    height: 38%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+ion-row.card-footer-row {
+    position: absolute;
+    width: 100%;
+}
+
+ion-col.card-footer-col {
+    padding: 0;
+}

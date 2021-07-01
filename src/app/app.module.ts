@@ -13,10 +13,11 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from './../environments/environment.prod';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EffectsArray } from './app.effect';
-import { appReducers } from './app.reducer';
-import { SplitPipe } from './pipes/split.pipe';
+import { appReducers } from '../store/app.reducer';
 import { PipesModule } from './pipes/pipes.module';
+import { EffectsArray } from '../store/effects';
+
+
 
 
 export function createTranslateLoader(http: HttpClient) {

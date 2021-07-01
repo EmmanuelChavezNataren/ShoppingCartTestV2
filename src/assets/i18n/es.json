@@ -24,6 +24,7 @@
     "NETWORK_MESSAGE": "Por favor revisa tu conexión a internet e intentalo de nuevo.",
     "NO": "No",
     "PROCEED_PAYMENT": "Proceder al pago",
+    "PROFILE": "Mi Perfil",
     "REVIEWS": "Reseñas",
     "SELECT_BRAND": "Selecciona la marca",
     "SEND_EMAIL": "¿Desea enviar el error a soporte?",
@@ -35,5 +36,7 @@
     "WELCOME_HEADER": "Encuentra los mejores audífonos",
     "WELCOME_LBL": "Bienvenido",
     "WELCOME_MESSAGE": "Busca y adquiere los mejores audífonos de las mejores marcas al alcance de tu móvil",
-    "YES": "Si"
+    "YES": "Si",
+    "MY_FAVORITES": "Mis productos favoritos",
+    "FAVORITES": "Favoritos"
 }

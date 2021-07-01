@@ -1,23 +1,24 @@
-import { SharedModule } from './../../shared/shared.module';
+import { PipesModule } from './../../pipes/pipes.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TutorialPageRoutingModule } from './tutorial-routing.module';
+import { ProfilePageRoutingModule } from './profile-routing.module';
 
-import { TutorialPage } from './tutorial.page';
+import { ProfilePage } from './profile.page';
 import { TranslateModule } from '@ngx-translate/core';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TutorialPageRoutingModule,
+    ProfilePageRoutingModule,
     TranslateModule,
-    SharedModule
+    PipesModule, 
   ],
-  declarations: [TutorialPage],
+  declarations: [ProfilePage]
 })
-export class TutorialPageModule {}
+export class ProfilePageModule {}

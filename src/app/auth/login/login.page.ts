@@ -4,9 +4,9 @@ import { AppComponent } from '../../app.component';
 import { UtilitiesService } from '../../services/utilities.service';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AppState } from '../../app.reducer';
+import { AppState } from '../../../store/app.reducer';
 import { User } from '../../models/user.model';
-import * as fromAuth from '../auth.actions';
+import * as fromAuth from '../../../store/actions/auth.actions';
 
 /**
  * Clase para manejar la l&oacute;gica del Login

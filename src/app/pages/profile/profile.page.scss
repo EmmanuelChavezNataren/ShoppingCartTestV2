@@ -1,0 +1,130 @@
+ion-title {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+}
+
+ion-grid.userprofile-avatar {
+    padding: 89px 0px 0px 0px;
+    padding-bottom: var(--ion-grid-padding-xs, var(--ion-grid-padding, 5px));
+}
+
+ion-row.userprofile-avatar {
+    justify-content: center;
+}
+
+ion-col.col-avatar {
+    align-self: center;
+    background: var(--ion-color-tertiary);
+    border-radius: 50%;
+    flex: 1 1 0% !important;
+    left: 0.438rem;
+    margin: 0px 0px 0px 1px;
+    padding: 0;
+    text-align: left;
+}
+
+ion-avatar.userprofile-avatar {
+    background: conic-gradient(var(--ion-color-primary) 33%, var(--ion-color-primary) 0 66%, var(--ion-color-tertiary) 0 94%, var(--ion-color-primary) 0 100%);
+    box-shadow: 5px 4px 4px rgba(var(--ion-color-primary-rgb), 0.4);
+    height: 7.75rem;
+    padding: 5px;
+    width: 7.75rem;
+    img {
+        background: var(--ion-color-tertiary);
+        padding: 2px;
+    }
+}
+
+ion-col.user-fullname {
+    align-self: center;
+    margin: 0px 9px 0px 0px;
+    padding: 0;
+    padding-left: 0.625rem;
+    text-align: center;
+}
+
+.user-firstname ion-label {
+    font-family: "Raleway-Bold";
+    font-size: 36px;
+    line-height: 42px;
+    white-space: pre-wrap;
+}
+
+.user-lastname ion-label {
+    color: var(--ion-text-color-contrast);
+    font-family: "Raleway";
+    font-size: 36px;
+    font-weight: 400;
+    line-height: 42px;
+    white-space: pre-wrap;
+}
+
+ion-label.user-mail {
+    color: var(--ion-color-primary);
+    font-family: "Raleway-Bold";
+    font-size: 24px;
+    line-height: 28px;
+}
+
+ion-col.user-mail {
+    left: 1.438rem;
+    margin-top: 0.046rem;
+    padding: 0;
+}
+
+ion-grid.my-favorites-grd {
+    padding: 39px 0px 0px 0px;
+}
+
+ion-col.my-favorites-col {
+    left: 1.438rem;
+    padding: 0;
+}
+
+ion-fab-button.favorite-icon {
+    --background: var(--ion-text-color-contrast);
+    --box-shadow: none;
+    height: 1.938rem;
+    margin: 0px 9px 0px 0px;
+    width: 1.938rem;
+    ion-icon {
+        font-size: 18px;
+    }
+}
+
+ion-item.favorite {
+    padding-inline-end: 92px;
+}
+
+ion-label.my-favourites {
+    font-family: "Raleway-Bold";
+    font-size: 14px;
+    line-height: 16px;
+    white-space: pre-wrap;
+}
+
+ion-button.logout {
+    margin-bottom: 39px;
+}
+
+ion-icon.detail {
+    background-color: var(--ion-text-color-contrast);
+    border-radius: 7px;
+    height: 30.88px;
+    margin: 0;
+    width: 32px;
+}
+
+.detail div.icon-inner,
+.ionicon,
+svg {
+    align-items: center;
+    display: flex;
+    height: 1;
+    justify-content: center;
+    padding-top: 20%;
+}

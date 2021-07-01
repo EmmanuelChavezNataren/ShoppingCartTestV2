@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilitiesService } from '../../services/utilities.service';
-import { AppState } from '../../app.reducer';
+import { AppState } from '../../../store/app.reducer';
 import { Store } from '@ngrx/store';
 import { User } from '../../models/user.model';
+import { Router, ActivatedRoute } from '@angular/router';
+import * as actions from '../../../store/actions';
 
 /**
  * Clase que contiene l&oacute;gica de la pantalq de inicio
@@ -18,17 +20,22 @@ export class HomePage implements OnInit {
   userProfile: User;
   constructor(
     private utilities: UtilitiesService,
-    private store: Store<AppState>
-  ) { }
+    private store: Store<AppState>,
+    private route: ActivatedRoute,
+    
+  ) { 
+    this.store.dispatch(actions.loadAllProducts());
+  }
 
   ngOnInit() {
     this.utilities.hideLoader();
     this.store.select('auth').subscribe(
       ({ user }) => {          
        this.userProfile = user;
-       console.log('UserProfile ', this.userProfile);
        this.utilities.hideLoader();
-       });  
+       });
+    
+
   }
 
 }

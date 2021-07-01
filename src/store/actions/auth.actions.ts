@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { User } from '../models/user.model';
+import { User } from '../../app/models/user.model';
 
 /**
  * Acci&oacute;n de cargar perfil del usuario
@@ -16,7 +16,7 @@ export const loadUserSuccess = createAction(
 );
 
 /**
-* Acci&oacute;n de cargar perfil del usuario
+* Acci&oacute;n de error de cargar perfil del usuario
 * @param payload Objeto del error
 */
 export const loadUserError = createAction(
