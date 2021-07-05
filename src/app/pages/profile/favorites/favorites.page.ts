@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Observable, Subscription } from 'rxjs';
 
-import { AppState } from '../../../../store/app.reducer';
+import { ProductsFacade } from '../../../../store/facades/products.facade';
 import { Product } from '../../../models/product.model';
+import { StorageService } from '../../../services/storage.service';
 
 @Component({
   selector: 'app-favorites',
@@ -11,18 +12,32 @@ import { Product } from '../../../models/product.model';
 })
 export class FavoritesPage implements OnInit {
   allFavoriteProducts: Product[] = [];
+  subs: Subscription = new Subscription();
+  isLoading$: Observable<boolean>;
+
   constructor(
-    private store: Store<AppState>
+    private storage: StorageService,
+    private productsFacade: ProductsFacade
   ) { }
 
   ngOnInit() {
-    this.store.select('products').subscribe(
-      ({ products }) => {
-        this.allFavoriteProducts = products.filter((product) => {
-          return product.is_favorite
-        });
-      });
+    this.subs.add(
+      this.productsFacade.products$.subscribe(
+        products => {
+          this.allFavoriteProducts = products.filter(
+            allProducts => {
+              return allProducts.is_favorite;
+            }
+          );
+        }
+      )
+    );
+    this.isLoading$ = this.productsFacade.isLoading$;
 
+  }
+
+  ngOnDestroy() {
+    this.subs.unsubscribe();
   }
 
 }

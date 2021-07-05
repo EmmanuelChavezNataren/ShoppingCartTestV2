@@ -3,6 +3,9 @@ import { Network } from '@ionic-native/network/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
+import { StorageItems } from 'src/app/models/enums/storage.enum';
+
+import { StorageService } from './storage.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +20,9 @@ export class UtilitiesService {
     private loadingCtrl: LoadingController,
     private translateService: TranslateService,
     private toast: Toast,
-    private alertCtrl: AlertController,) { }
+    private alertCtrl: AlertController,
+    private storage: StorageService
+  ) { }
 
 
   /**
@@ -179,12 +184,12 @@ export class UtilitiesService {
    * @returns Tiempo establecido para el timeout
    */
   setTimeoutLoader(): NodeJS.Timeout {
-    localStorage.setItem("isTimeOutError", "false");
+    this.storage.set(StorageItems.isTimeOutError, false);
     return setTimeout(() => {
       this.showBasicAlert(this.translate('networkError'),
         this.translate('networkMessage'),
         this.translate('buttonOk'));
-      localStorage.setItem("isTimeOutError", "true");
+      this.storage.set(StorageItems.isTimeOutError, true);
       this.loadingCtrl.dismiss();
       this.isLoading = false;
     }, 10000);

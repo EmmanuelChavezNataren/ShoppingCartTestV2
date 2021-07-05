@@ -1,11 +1,11 @@
 <ion-content>
-    <app-logo-header></app-logo-header>
+    <app-logo-header *ngIf="!(isLoading$ | async )"></app-logo-header>
 
-    <ion-grid class="ion-no-padding ion-align-self-center">
+    <ion-grid *ngIf="!(isLoading$ | async )" class="ion-no-padding ion-align-self-center">
         <ion-row>
             <ion-col class="user-avatar">
                 <ion-avatar>
-                    <img [src]="userProfile?.picture.large" />
+                    <img [src]="userProfile?.picture?.large" />
                 </ion-avatar>
             </ion-col>
         </ion-row>
@@ -15,7 +15,7 @@
             </ion-col>
         </ion-row>
     </ion-grid>
-    <ion-grid class="ion-no-padding ion-align-self-center login-buttons">
+    <ion-grid *ngIf="!(isLoading$ | async )" class="ion-no-padding ion-align-self-center login-buttons">
         <ion-row>
             <ion-col class="ion-no-padding ion-text-center">
                 <ion-button class="primary-buttons" (click)="login()" shape="round" expand="full">
@@ -31,4 +31,10 @@
             </ion-col>
         </ion-row>
     </ion-grid>
+
+
+
+    <div *ngIf="(isLoading$ | async) ">
+        <ion-skeleton-text animated style="width: 100%; height: 10vh; margin: 4% 0;"></ion-skeleton-text>
+    </div>
 </ion-content>

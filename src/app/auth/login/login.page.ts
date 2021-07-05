@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { StorageEnum } from 'src/app/models/enums/storage.enum';
+import { Observable, Subscription } from 'rxjs';
+import { StorageItems } from 'src/app/models/enums/storage.enum';
 
-import * as fromAuth from '../../../store/actions/auth.actions';
-import { AppState } from '../../../store/app.reducer';
 import { AppComponent } from '../../app.component';
 import { User } from '../../models/user.model';
-import { UtilitiesService } from '../../services/utilities.service';
+import { StorageService } from '../../services/storage.service';
+import { UserFacade } from './../../../store/facades/user.facade';
 
 @Component({
   selector: 'app-login',
@@ -16,13 +15,17 @@ import { UtilitiesService } from '../../services/utilities.service';
 })
 export class LoginPage implements OnInit {
 
-  public userProfile: User = null;
+  isLoading$: Observable<boolean>;
+
+  userProfile: User;
+  subs: Subscription = new Subscription();
 
   constructor(
     private appComponent: AppComponent,
-    private utilities: UtilitiesService,
     private router: Router,
-    private store: Store<AppState>) {
+    private userFacade: UserFacade,
+    private storage: StorageService
+  ) {
   }
 
 
@@ -31,32 +34,35 @@ export class LoginPage implements OnInit {
   }
 
   async ionViewDidEnter() {
-    localStorage.setItem(StorageEnum.TOKEN_LOGIN, 'false');
-    await this.utilities.showLoader();
-    this.store.select('auth').subscribe(
-      ({ user }) => {
-        this.userProfile = user;
-        this.utilities.hideLoader();
-      });
+    this.storage.set(StorageItems.tokenLogin, false);
+    this.subs.add(
+      this.userFacade.user$.subscribe(res => {
+        this.userProfile = res;
+        this.storage.set(StorageItems.userInfo, JSON.stringify(this.userProfile));
+      })
+    );
+    this.isLoading$ = this.userFacade.isLoading$;
+    this.userFacade.loadUser();
 
-    this.store.dispatch(fromAuth.loadUser());
+  }
 
+  ngOnDestroy() {
+    this.subs.unsubscribe();
   }
 
 
   es() {
-    localStorage.setItem(StorageEnum.LANGUAGE_TXT, "English");
+    this.storage.set(StorageItems.languageTxt, 'English');
     this.appComponent.initTranslate('es');
   }
 
   en() {
-    localStorage.setItem(StorageEnum.LANGUAGE_TXT, "Español");
+    this.storage.set(StorageItems.languageTxt, 'Español');
     this.appComponent.initTranslate('en');
   }
 
   login() {
-    localStorage.setItem(StorageEnum.TOKEN_LOGIN, 'true');
-    this.utilities.showLoader();
+    this.storage.set(StorageItems.tokenLogin, true);
     this.router.navigateByUrl('/tabs', { replaceUrl: true });
   }
 

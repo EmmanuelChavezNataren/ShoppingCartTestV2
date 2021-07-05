@@ -1,0 +1,68 @@
+<ion-slides [options]="slideOps" *ngIf="!(isLoading$ | async)">
+    <ion-slide *ngFor="let product of discountedProducts">
+        <ion-card class="products-card">
+            <ion-card-header class="products-header-card">
+                <ion-card-title class="product-name">{{ product.product_name }}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="product-content-card">
+                <ion-grid class="ion-no-padding grid-no-padding products-content-gdr">
+                    <ion-row class="product-img-row">
+                        <ion-col size="5" class="ion-no-padding old-product-price-col">
+                            <ion-item lines="none" class="product-price-item">
+                                <ion-label class="old-product-price">{{ +product.product_price | currency }}</ion-label>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col size="7">
+                            <div class="container-polygon">
+                                <div class="polygon"></div>
+                            </div>
+                            <div class="product-img-div">
+                                <ion-img class="product-img-picture" [src]="product.product_image">
+                                </ion-img>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+
+                    <ion-row>
+                        <ion-col size="6">
+                            <ion-item lines="none" class="product-price-item">
+                                <ion-label class="product-price">{{ getDiscountPrice(+product.product_price, +product.discount) | currency }}</ion-label>
+                            </ion-item>
+                        </ion-col>
+                        <ion-col size="6">
+                            <ion-list class="rating-list">
+                                <ion-icon color="warning" slot="start" [name]="product.score >= 1 ? 'star' : 'star-outline'">
+                                </ion-icon>
+                                <ion-icon color="warning" slot="start" [name]="product.score >= 2 ? 'star' : 'star-outline'">
+                                </ion-icon>
+                                <ion-icon color="warning" slot="start" [name]="product.score >= 3 ? 'star' : 'star-outline'">
+                                </ion-icon>
+                                <ion-icon color="warning" slot="start" [name]="product.score >= 4 ? 'star' : 'star-outline'">
+                                </ion-icon>
+                                <ion-icon color="warning" slot="start" [name]="product.score >= 5 ? 'star' : 'star-outline'">
+                                </ion-icon>
+                            </ion-list>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-card-content>
+        </ion-card>
+    </ion-slide>
+</ion-slides>
+
+
+<ion-slides [options]="slideOps" *ngIf="(isLoading$ | async)">
+    <ion-slide>
+        <ion-card *ngIf="(isLoading$ | async)" class="products-card">
+            <ion-card-header class="products-header-card">
+                <ion-card-title class="product-name">
+                    <ion-skeleton-text animated style="width: 100%; height: 2vh; margin: 4% 0;"></ion-skeleton-text>
+                </ion-card-title>
+            </ion-card-header>
+            <ion-card-content class="product-content-card">
+                <ion-skeleton-text animated style="width: 100%; height: 6vh; margin: 4% 0;"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 100%; height: 2vh; margin: 4% 0;"></ion-skeleton-text>
+            </ion-card-content>
+        </ion-card>
+    </ion-slide>
+</ion-slides>

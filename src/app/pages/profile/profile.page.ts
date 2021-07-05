@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
+import { StorageItems } from 'src/app/models/enums/storage.enum';
 
-import { AppState } from '../../../store/app.reducer';
 import { User } from '../../models/user.model';
+import { StorageService } from '../../services/storage.service';
+
 
 @Component({
   selector: 'app-profile',
@@ -13,15 +14,12 @@ import { User } from '../../models/user.model';
 export class ProfilePage implements OnInit {
   userProfile: User;
   constructor(
-    private store: Store<AppState>,
-    private router: Router
+    private router: Router,
+    private storage: StorageService
   ) { }
 
-  ngOnInit() {
-    this.store.select('auth').subscribe(
-      ({ user }) => {
-        this.userProfile = user;
-      });
+  async ngOnInit() {
+    this.userProfile = await this.storage.getObject(StorageItems.userInfo);
   }
 
   logout() {

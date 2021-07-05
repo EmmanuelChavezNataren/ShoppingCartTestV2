@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
 import { CanLoad, Router } from '@angular/router';
-import { StorageEnum } from 'src/app/models/enums/storage.enum';
+import { StorageItems } from 'src/app/models/enums/storage.enum';
+
+import { StorageService } from '../services/storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TutorialGuard implements CanLoad {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private storage: StorageService
+  ) { }
 
   async canLoad(): Promise<boolean> {
-    const hasSeenTutorial = localStorage.getItem(StorageEnum.TUTORIAL_KEY);
+    const hasSeenTutorial = await this.storage.get(StorageItems.tutorialKey);
 
     if (hasSeenTutorial && (hasSeenTutorial === 'true')) {
       return true;

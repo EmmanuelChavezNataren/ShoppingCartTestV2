@@ -1,7 +1,11 @@
-export const enum StorageEnum {
-  TUTORIAL_KEY = 'intro_seen',
-  LANGUAGE = 'language',
-  LOCALE = 'locale',
-  LANGUAGE_TXT = 'languageText',
-  TOKEN_LOGIN = 'isLogin'
+export const enum StorageItems {
+  tutorialKey = 'intro_seen',
+  language = 'language',
+  locale = 'locale',
+  languageTxt = 'languageText',
+  tokenLogin = 'isLogin',
+  userInfo = 'userInfo',
+  isTimeOutError = 'isTimeOutError',
+  allProducts = 'products'
+
 }
