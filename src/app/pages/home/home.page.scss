@@ -17,3 +17,15 @@ ion-item {
 ion-toolbar {
     --padding-end: 1rem;
 }
+
+ion-col.discover {
+    padding-bottom: 0;
+}
+
+ion-label.discover-title {
+    margin-bottom: 0;
+}
+
+ion-col.app-product-list {
+    padding-top: 0;
+}

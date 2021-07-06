@@ -30,6 +30,12 @@ export class HomePage implements OnInit {
   async ngOnInit() {
     this.userProfile = await this.storage.getObject(StorageItems.userInfo);
     this.productsFacade.getAllProducts();
+    this.subs.add(
+      this.productsFacade.products$.subscribe(
+        products => {
+          this.allProducts = products;
+        }));
+    this.isLoading$ = this.productsFacade.isLoading$;
   }
 
   ngOnDestroy(): void {

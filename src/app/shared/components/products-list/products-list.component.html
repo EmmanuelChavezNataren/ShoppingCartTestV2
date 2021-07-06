@@ -1,8 +1,8 @@
-<ion-grid class="products-grid-parent">
+<ion-grid class="grid-no-padding">
     <ion-row>
-        <ion-col>
-            <ion-list>
-                <ion-grid>
+        <ion-col class="product-list-container-col">
+            <ion-list *ngIf="!(isLoading | async)">
+                <ion-grid class="product-list-container-grd">
                     <ion-row>
                         <ion-col size="6" *ngFor="let product of products">
                             <ion-card class="products-card">
@@ -20,7 +20,7 @@
                                             <ion-col class="product-favorite-icon-col" size="2">
                                                 <div class="product-favorite-dv">
                                                     <ion-button class="product-favorite-btn" slot="end" fill="clear">
-                                                        <ion-icon color="danger" slot="icon-only" name="heart-circle">
+                                                        <ion-icon [class.is-favorite]="product.is_favorite" [class.is-favorite-disabled]="!product.is_favorite" slot="icon-only" name="heart-circle">
                                                         </ion-icon>
                                                     </ion-button>
                                                 </div>
@@ -31,8 +31,8 @@
                                     </ion-grid>
                                 </ion-card-header>
                                 <ion-card-content class="product-content-card">
-                                    <ion-grid class="product-img-grd">
-                                        <ion-row>
+                                    <ion-grid class="product-content-grd">
+                                        <ion-row class="product-img-row">
                                             <ion-col class="product-img">
                                                 <div class="container-polygon">
                                                     <div class="polygon"></div>
@@ -43,30 +43,39 @@
                                                 </div>
                                             </ion-col>
                                         </ion-row>
-                                    </ion-grid>
-                                    <ion-grid class="card-footer-grd">
-                                        <ion-row>
-                                            <ion-col size="9" class="product-price-col">
-                                                <ion-item class="product-price-item">
-                                                    <ion-label class="product-price">{{ +product.product_price | currency }}</ion-label>
-                                                </ion-item>
-                                            </ion-col>
-                                        </ion-row>
+
 
                                         <ion-row>
-                                            <ion-col size="9" class="rating-list-col">
-                                                <ion-list class="rating-list">
-                                                    <ion-icon color="warning" slot="start" [name]="product.score >= 1 ? 'star' : 'star-outline'">
-                                                    </ion-icon>
-                                                    <ion-icon color="warning" slot="start" [name]="product.score >= 2 ? 'star' : 'star-outline'">
-                                                    </ion-icon>
-                                                    <ion-icon color="warning" slot="start" [name]="product.score >= 3 ? 'star' : 'star-outline'">
-                                                    </ion-icon>
-                                                    <ion-icon color="warning" slot="start" [name]="product.score >= 4 ? 'star' : 'star-outline'">
-                                                    </ion-icon>
-                                                    <ion-icon color="warning" slot="start" [name]="product.score >= 5 ? 'star' : 'star-outline'">
-                                                    </ion-icon>
-                                                </ion-list>
+                                            <ion-col size="8" class="price-info">
+                                                <ion-row>
+                                                    <ion-col size="9" class="product-price-col">
+                                                        <ion-item class="product-price-item">
+                                                            <ion-label class="product-price">{{ +product.product_price | currency }}</ion-label>
+                                                        </ion-item>
+                                                    </ion-col>
+                                                </ion-row>
+
+                                                <ion-row>
+                                                    <ion-col size="9" class="rating-list-col">
+                                                        <ion-list class="rating-list">
+                                                            <ion-icon color="warning" slot="start" [name]="product.score >= 1 ? 'star' : 'star-outline'">
+                                                            </ion-icon>
+                                                            <ion-icon color="warning" slot="start" [name]="product.score >= 2 ? 'star' : 'star-outline'">
+                                                            </ion-icon>
+                                                            <ion-icon color="warning" slot="start" [name]="product.score >= 3 ? 'star' : 'star-outline'">
+                                                            </ion-icon>
+                                                            <ion-icon color="warning" slot="start" [name]="product.score >= 4 ? 'star' : 'star-outline'">
+                                                            </ion-icon>
+                                                            <ion-icon color="warning" slot="start" [name]="product.score >= 5 ? 'star' : 'star-outline'">
+                                                            </ion-icon>
+                                                        </ion-list>
+                                                    </ion-col>
+                                                </ion-row>
+                                            </ion-col>
+                                            <ion-col *ngIf="isDiscover" size="4" class="button-add-col">
+                                                <ion-button class="button-add">
+                                                    <ion-icon slot="icon-only" name="add"></ion-icon>
+                                                </ion-button>
                                             </ion-col>
                                         </ion-row>
                                     </ion-grid>
@@ -76,6 +85,35 @@
                     </ion-row>
                 </ion-grid>
             </ion-list>
+
+
+            <ion-list *ngIf="(isLoading | async)">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>
+                            <ion-card class="products-card">
+                                <ion-card-header class="products-header-card">
+                                    <ion-card-subtitle class="product-brand">
+                                        <ion-skeleton-text animated style="width: 100%; height: 2vh; margin: 4% 0;">
+                                        </ion-skeleton-text>
+                                    </ion-card-subtitle>
+                                    <ion-card-title class="product-name">
+                                        <ion-skeleton-text animated style="width: 100%; height: 2vh; margin: 4% 0;">
+                                        </ion-skeleton-text>
+                                    </ion-card-title>
+                                </ion-card-header>
+                                <ion-card-content class="product-content-card">
+                                    <ion-skeleton-text animated style="width: 100%; height: 2vh; margin: 4% 0;">
+                                    </ion-skeleton-text>
+                                    <ion-skeleton-text animated style="width: 100%; height: 2vh; margin: 4% 0;">
+                                    </ion-skeleton-text>
+                                </ion-card-content>
+                            </ion-card>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-list>
+
         </ion-col>
     </ion-row>
 </ion-grid>

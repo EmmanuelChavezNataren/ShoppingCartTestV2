@@ -11,8 +11,8 @@ import { Product } from '../../../models/product.model';
   styleUrls: ['./offerts.component.scss'],
 })
 export class OffertsComponent implements OnInit {
-  
-  @ViewChild('slideNav', { static: false}) slideNav: IonSlides;
+
+  @ViewChild('slideNav', { static: false }) slideNav: IonSlides;
   slideOps = {
     initialSlide: 1,
     slidesPerView: 1.6,
@@ -41,14 +41,14 @@ export class OffertsComponent implements OnInit {
     );
 
     this.isLoading$ = this.productsFacade.isLoading$;
-    
+
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.subs.unsubscribe();
   }
 
-  getDiscountPrice(productPrice: number, discount: number): number{
+  getDiscountPrice(productPrice: number, discount: number): number {
     return (productPrice - discount);
   }
 

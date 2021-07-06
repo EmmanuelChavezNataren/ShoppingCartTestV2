@@ -1,17 +1,26 @@
+ion-col.product-list-container-col {
+    padding-right: 0;
+}
+
+ion-grid.product-list-container-grd {
+    padding-right: 0;
+}
+
 ion-card.products-card {
-    border-radius: 0.625rem;
-    box-shadow: 0px 5px 10px 2px rgba(0, 0, 0, 0.2);
-    height: 97.71%;
+    border-radius: 1.25rem;
+    box-shadow: 0px 5px 10px 2px rgba(var(--ion-color-dark-rgb), 0.2);
+    height: 10.875rem;
     margin: 0;
     width: 94.34%;
 }
 
 ion-card-header.products-header-card {
+    height: 26%;
     padding: 0.25rem 0.9375rem 0 1rem;
 }
 
 ion-card-content.product-content-card {
-    height: 80%;
+    height: 75%;
     padding: 0;
 }
 
@@ -23,7 +32,7 @@ ion-card-subtitle.product-brand {
 }
 
 ion-card-title.product-name {
-    color: var(--ion-text-color-tint);
+    color: var(--ion-color-dark);
     font-family: 'Poppins-Medium';
     font-size: 0.75rem;
     line-height: 1.125rem;
@@ -60,15 +69,9 @@ ion-img.product-img-picture {
 
 div.product-img-div {
     display: flex;
-    height: 105%;
+    height: 4.4375rem;
     margin: 0;
-    width: 36.7%;
-}
-
-ion-grid.products-grid-parent {
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 2.625rem;
+    width: 35.7%;
 }
 
 ion-item.product-header {
@@ -94,13 +97,12 @@ ion-col.product-favorite-icon-col {
 }
 
 div.container-polygon {
-    left: 26%;
+    display: flex;
+    left: 45%;
     margin-left: auto;
     margin-right: auto;
     position: absolute;
-    right: 0;
-    top: 18%;
-    z-index: 1;
+    top: 20%;
 }
 
 .polygon {
@@ -155,8 +157,10 @@ ion-col.rating-list-col {
     padding: 0;
 }
 
-ion-grid.product-img-grd {
-    height: 60%;
+ion-grid.product-content-grd {
+    height: 100%;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 ion-grid.card-footer-grd {
@@ -170,4 +174,26 @@ ion-row.card-footer-row {
 
 ion-col.card-footer-col {
     padding: 0;
+}
+
+ion-row.product-img-row {
+    height: 68%;
+}
+
+ion-col.price-info {
+    padding: 0;
+    padding-left: 1rem;
+}
+
+ion-col.button-add-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0;
+}
+
+ion-button.button-add {
+    --border-radius: 1.25rem 0;
+    height: 2.75rem;
+    margin: 0;
 }

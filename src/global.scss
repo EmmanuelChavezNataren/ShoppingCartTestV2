@@ -113,3 +113,11 @@ ion-label.product-price.sc-ion-label-md-h.sc-ion-label-md-s {
     white-space: pre-wrap;
     margin: 0%;
 }
+
+.is-favorite {
+    color: var(--ion-color-danger);
+}
+
+.is-favorite-disabled {
+    color: var(--ion-text-color-shade);
+}
