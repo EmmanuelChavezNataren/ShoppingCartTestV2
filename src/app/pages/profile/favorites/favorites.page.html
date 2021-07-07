@@ -8,11 +8,15 @@
 </ion-header>
 
 <ion-content>
-    <app-products-list [products]="allFavoriteProducts"></app-products-list>
+    <app-products-list *ngIf="!(isLoading$ | async )" [products]="allFavoriteProducts"></app-products-list>
 
     <ion-fab vertical="bottom" horizontal="end" slot="fixed" [routerLink]="['/tabs', 'filter-brands']">
         <ion-fab-button>
             <ion-icon class="add-favorite" name="add"></ion-icon>
         </ion-fab-button>
     </ion-fab>
+
+    <div *ngIf="(isLoading$ | async)">
+        <ion-skeleton-text animated style="width: 100%; height: 10vh; margin: 4% 0;"></ion-skeleton-text>
+    </div>
 </ion-content>

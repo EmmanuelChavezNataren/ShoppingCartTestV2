@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { Observable, Subscription } from 'rxjs';
+import { StorageItems } from 'src/app/models/enums/storage.enum';
 
-import * as actions from '../../../store/actions';
-import { AppState } from '../../../store/app.reducer';
+import { ProductsFacade } from '../../../store/facades/products.facade';
+import { Product } from '../../models/product.model';
 import { User } from '../../models/user.model';
-import { UtilitiesService } from '../../services/utilities.service';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-home',
@@ -12,25 +13,33 @@ import { UtilitiesService } from '../../services/utilities.service';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage implements OnInit {
+
   userProfile: User;
+  subs: Subscription = new Subscription();
+  isLoading$: Observable<boolean>;
+  allProducts: Product[];
+
+
   constructor(
-    private utilities: UtilitiesService,
-    private store: Store<AppState>,
+    private productsFacade: ProductsFacade,
+    private storage: StorageService
 
   ) {
   }
 
-  ngOnInit() {
-    this.utilities.hideLoader();
-    this.store.select('auth').subscribe(
-      ({ user }) => {
-        this.userProfile = user;
-        this.utilities.hideLoader();
-      });
+  async ngOnInit() {
+    this.userProfile = await this.storage.getObject(StorageItems.userInfo);
+    this.productsFacade.getAllProducts();
+    this.subs.add(
+      this.productsFacade.products$.subscribe(
+        products => {
+          this.allProducts = products;
+        }));
+    this.isLoading$ = this.productsFacade.isLoading$;
+  }
 
-    this.store.dispatch(actions.loadAllProducts());
-
-
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 
 }

@@ -10,4 +10,34 @@
             </ion-button>
         </ion-item>
     </ion-toolbar>
+
+    <ion-grid class="grid-no-padding">
+        <ion-row>
+            <ion-col>
+                <ion-item lines="none">
+                    <ion-label class="title-section">{{ 'biddingOfDayLbl' | translate }}</ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col class="ion-no-padding">
+                <app-offerts> </app-offerts>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid class="grid-no-padding">
+        <ion-row>
+            <ion-col class="discover">
+                <ion-item lines="none">
+                    <ion-label class="title-section discover-title">{{ 'discoverLbl' | translate }}</ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col class="app-product-list">
+                <app-products-list [products]="allProducts" [isLoading]="isLoading$" [isDiscover]="true"></app-products-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

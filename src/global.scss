@@ -36,7 +36,7 @@
 @font-face {
     font-family: "Poppins-Medium";
     src: url(./assets/fonts/Poppins/Poppins-Medium.ttf);
-    font-style: medium;
+    font-style: normal;
     font-weight: 500;
 }
 
@@ -90,4 +90,34 @@ ion-button.secondary-buttons {
 
 ion-toolbar {
     --background: var(--ion-color-tertiary);
+}
+
+ion-label.title-section.sc-ion-label-md-h.sc-ion-label-md-s {
+    font-family: 'Poppins-Medium';
+    font-size: 1.5rem;
+    line-height: 2.25rem;
+}
+
+ion-grid.grid-no-padding {
+    padding: 0;
+}
+
+ion-item.product-price-item {
+    --min-height: 0;
+}
+
+ion-label.product-price.sc-ion-label-md-h.sc-ion-label-md-s {
+    font-family: 'Poppins-Bold';
+    font-size: 0.875rem;
+    line-height: 1.3125rem;
+    white-space: pre-wrap;
+    margin: 0%;
+}
+
+.is-favorite {
+    color: var(--ion-color-danger);
+}
+
+.is-favorite-disabled {
+    color: var(--ion-text-color-shade);
 }

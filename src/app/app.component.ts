@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
-import { StorageEnum } from './models/enums/storage.enum';
+import { StorageItems } from './models/enums/storage.enum';
+import { StorageService } from './services/storage.service';
 import { UtilitiesService } from './services/utilities.service';
 
 @Component({
@@ -12,7 +13,8 @@ import { UtilitiesService } from './services/utilities.service';
 export class AppComponent {
   constructor(
     private translate: TranslateService,
-    private utilities: UtilitiesService
+    private utilities: UtilitiesService,
+    private storage: StorageService
   ) {
     this.initTranslate(null);
   }
@@ -21,23 +23,23 @@ export class AppComponent {
  * M&eacute;todo para inicializar idioma de la aplicaci&oacute;n
  * @param language Lenguaje a usar en la app
  */
-  initTranslate(language: string) {
+  async initTranslate(language: string) {
     if (language == null) {
-      if (this.utilities.isNull(localStorage.getItem(StorageEnum.LOCALE))) {
+      if (this.utilities.isNull(this.storage.get(StorageItems.locale))) {
         language = 'es';
-        localStorage.setItem(StorageEnum.LANGUAGE, language);
-        localStorage.setItem(StorageEnum.LOCALE, language);
-        localStorage.setItem(StorageEnum.LANGUAGE_TXT, 'English');
+        this.storage.set(StorageItems.languageTxt, language);
+        this.storage.set(StorageItems.locale, language);
+        this.storage.set(StorageItems.languageTxt, 'English');
       } else {
-        language = localStorage.getItem(StorageEnum.LOCALE);
+        language = await this.storage.get(StorageItems.locale);
       }
 
     }
 
     if (language == 'es') {
-      localStorage.setItem(StorageEnum.LOCALE, 'es');
+      this.storage.set(StorageItems.locale, 'es');
     } else {
-      localStorage.setItem(StorageEnum.LOCALE, 'en');
+      this.storage.set(StorageItems.locale, 'en');
     }
 
     this.translate.use(language); // Se define lenguaje  

@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
 import { CanLoad, Router } from '@angular/router';
 
-import { StorageEnum } from '../models/enums/storage.enum';
+import { StorageItems } from '../models/enums/storage.enum';
+import { StorageService } from '../services/storage.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanLoad {
 
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private storage: StorageService
+  ) { }
 
   async canLoad(): Promise<boolean> {
-    const isLogin = localStorage.getItem(StorageEnum.TOKEN_LOGIN);
+    const isLogin = await this.storage.get(StorageItems.tokenLogin);
     if (isLogin && (isLogin === 'true')) {
       return true;
     } else {

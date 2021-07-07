@@ -1,49 +1,59 @@
+ion-col.product-list-container-col {
+    padding-right: 0;
+}
+
+ion-grid.product-list-container-grd {
+    padding-right: 0;
+}
+
 ion-card.products-card {
-    border-radius: 0.625rem;
+    border-radius: 1.25rem;
+    box-shadow: 0px 5px 10px 2px rgba(var(--ion-color-dark-rgb), 0.2);
+    height: 10.875rem;
     margin: 0;
     width: 94.34%;
-    height: 97.71%;
 }
 
 ion-card-header.products-header-card {
+    height: 26%;
     padding: 0.25rem 0.9375rem 0 1rem;
 }
 
 ion-card-content.product-content-card {
+    height: 75%;
     padding: 0;
-    height: 80%;
 }
 
 ion-card-subtitle.product-brand {
+    color: var(--ion-text-color-shade);
     font-family: 'Poppins-Medium';
     font-size: 0.625rem;
     line-height: 0.9375rem;
-    color: var(--ion-text-color-shade);
 }
 
 ion-card-title.product-name {
-    margin: 0;
+    color: var(--ion-color-dark);
     font-family: 'Poppins-Medium';
     font-size: 0.75rem;
     line-height: 1.125rem;
-    color: var(--ion-text-color-tint);
+    margin: 0;
 }
 
 ion-grid.product-header-grd {
-    padding: 0;
     --min-height: 0px;
+    padding: 0;
 }
 
 ion-col.product-name-col {
-    padding: 0;
     align-self: center;
+    padding: 0;
 }
 
 ion-item {
     --border-width: 0;
     --inner-border-width: 0;
-    --padding-start: 0;
     --inner-padding-end: 0;
+    --padding-start: 0;
 }
 
 ion-col.product-img {
@@ -59,15 +69,9 @@ ion-img.product-img-picture {
 
 div.product-img-div {
     display: flex;
-    width: 36.7%;
-    height: 105%;
+    height: 4.4375rem;
     margin: 0;
-}
-
-ion-grid.products-grid-parent {
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 2.625rem;
+    width: 35.7%;
 }
 
 ion-item.product-header {
@@ -84,49 +88,45 @@ div.product-favorite-dv {
 }
 
 ion-col.product-favorite-icon-col {
-    padding: 0;
-    height: 1.125rem;
-    display: flex;
     align-content: space-around;
+    display: flex;
     flex-wrap: wrap;
+    height: 1.125rem;
     justify-content: center;
+    padding: 0;
 }
 
 div.container-polygon {
-    position: absolute;
-    z-index: 1;
-    top: 18%;
-    left: 26%;
-    right: 0;
+    display: flex;
+    left: 45%;
     margin-left: auto;
     margin-right: auto;
+    position: absolute;
+    top: 20%;
 }
 
 .polygon {
-    position: relative;
     background-color: var(--ion-color-primary);
-    opacity: .1;
+    opacity: 0.1;
+    position: relative;
     text-align: left;
+    transform: rotate(42deg) skewX(-30deg) scale(1, 0.866);
 }
 
 .polygon:before,
 .polygon:after {
+    background-color: inherit;
     content: '';
     position: absolute;
-    background-color: inherit;
 }
 
 .polygon,
 .polygon:before,
 .polygon:after {
-    width: 3.0rem;
+    border-top-right-radius: 46%;
     height: 3.0rem;
     margin: 0 auto;
-    border-top-right-radius: 46%;
-}
-
-.polygon {
-    transform: rotate(42deg) skewX(-30deg) scale(1, .866);
+    width: 3.0rem;
 }
 
 .polygon:before {
@@ -145,14 +145,6 @@ ion-item.product-price-item {
     --min-height: 0;
 }
 
-ion-label.product-price {
-    font-family: 'Poppins-Bold';
-    font-size: 0.875rem;
-    line-height: 1.3125rem;
-    white-space: pre-wrap;
-    margin: 0%;
-}
-
 ion-col.product-price-col {
     padding: 0;
 }
@@ -165,12 +157,10 @@ ion-col.rating-list-col {
     padding: 0;
 }
 
-ion-col.product-price-col {
-    padding: 0;
-}
-
-ion-grid.product-img-grd {
-    height: 60%;
+ion-grid.product-content-grd {
+    height: 100%;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 ion-grid.card-footer-grd {
@@ -184,4 +174,26 @@ ion-row.card-footer-row {
 
 ion-col.card-footer-col {
     padding: 0;
+}
+
+ion-row.product-img-row {
+    height: 68%;
+}
+
+ion-col.price-info {
+    padding: 0;
+    padding-left: 1rem;
+}
+
+ion-col.button-add-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0;
+}
+
+ion-button.button-add {
+    --border-radius: 1.25rem 0;
+    height: 2.75rem;
+    margin: 0;
 }

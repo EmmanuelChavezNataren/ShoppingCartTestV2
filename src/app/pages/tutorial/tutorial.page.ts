@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { StorageEnum } from 'src/app/models/enums/storage.enum';
+import { StorageItems } from 'src/app/models/enums/storage.enum';
 
 import { AppComponent } from '../../app.component';
+import { StorageService } from '../../services/storage.service';
 import { UtilitiesService } from '../../services/utilities.service';
 
 
@@ -16,7 +17,9 @@ export class TutorialPage implements OnInit {
   constructor(
     private appComponent: AppComponent,
     private utilities: UtilitiesService,
-    private router: Router) { }
+    private router: Router,
+    private storage: StorageService
+  ) { }
 
   ngOnInit() {
     this.es();
@@ -24,18 +27,18 @@ export class TutorialPage implements OnInit {
 
 
   es() {
-    localStorage.setItem(StorageEnum.LANGUAGE_TXT, "English");
+    this.storage.set(StorageItems.languageTxt, 'English');
     this.appComponent.initTranslate('es');
   }
 
   en() {
-    localStorage.setItem(StorageEnum.LANGUAGE_TXT, "Español");
+    this.storage.set(StorageItems.languageTxt, 'Español');
     this.appComponent.initTranslate('en');
   }
 
   async executeStart() {
     this.utilities.networkStatus(() => {
-      localStorage.setItem(StorageEnum.TUTORIAL_KEY, 'true');
+      this.storage.set(StorageItems.tutorialKey, true);
       this.router.navigateByUrl('/login');
     })
 
