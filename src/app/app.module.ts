@@ -19,6 +19,7 @@ import { PipesModule } from './pipes/pipes.module';
 
 
 
+// eslint-disable-next-line prefer-arrow/prefer-arrow-functions
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }

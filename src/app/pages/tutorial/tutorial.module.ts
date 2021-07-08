@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { TranslateModule } from '@ngx-translate/core';
+import { SharedModule } from 'src/app/shared/shared.module';
 
-import { SharedModule } from './../../shared/shared.module';
 import { TutorialPageRoutingModule } from './tutorial-routing.module';
 import { TutorialPage } from './tutorial.page';
 

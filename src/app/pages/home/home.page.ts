@@ -1,18 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { StorageItems } from 'src/app/models/enums/storage.enum';
+import { Product } from 'src/app/models/product.model';
+import { User } from 'src/app/models/user.model';
+import { StorageService } from 'src/app/services/storage.service';
+import { ProductsFacade } from 'src/store/facades/products.facade';
 
-import { ProductsFacade } from '../../../store/facades/products.facade';
-import { Product } from '../../models/product.model';
-import { User } from '../../models/user.model';
-import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage implements OnInit, OnDestroy {
 
   userProfile: User;
   subs: Subscription = new Subscription();

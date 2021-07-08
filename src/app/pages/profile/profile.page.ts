@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { StorageItems } from 'src/app/models/enums/storage.enum';
+import { User } from 'src/app/models/user.model';
+import { StorageService } from 'src/app/services/storage.service';
 
-import { User } from '../../models/user.model';
-import { StorageService } from '../../services/storage.service';
+
 
 
 @Component({

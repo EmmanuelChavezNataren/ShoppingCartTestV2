@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
 import { StorageItems } from 'src/app/models/enums/storage.enum';
+import { StorageService } from 'src/app/services/storage.service';
+import { UtilitiesService } from 'src/app/services/utilities.service';
 
-import { AppComponent } from '../../app.component';
-import { StorageService } from '../../services/storage.service';
-import { UtilitiesService } from '../../services/utilities.service';
+
 
 
 @Component({
@@ -40,7 +41,7 @@ export class TutorialPage implements OnInit {
     this.utilities.networkStatus(() => {
       this.storage.set(StorageItems.tutorialKey, true);
       this.router.navigateByUrl('/login');
-    })
+    });
 
   }
 

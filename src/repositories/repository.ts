@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
-import { environment } from '../environments/environment';
 
 
 
@@ -10,13 +10,13 @@ export abstract class IRepository {
   constructor(protected http: HttpClient) { }
 
 
-  protected get Header() {
+  protected get header() {
     return {
       headers: new HttpHeaders().set(
         'Content-Type',
         'application/x-www-form-urlencoded'
       ),
-    }
+    };
   }
 
   protected buildCompletePath(path: string): string {

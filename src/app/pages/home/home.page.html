@@ -36,7 +36,7 @@
         </ion-row>
         <ion-row>
             <ion-col class="app-product-list">
-                <app-products-list [products]="allProducts" [isLoading]="isLoading$" [isDiscover]="true"></app-products-list>
+                <app-products-list [products]="allProducts" [isLoading]="isLoading$ | async" [isDiscover]="true"></app-products-list>
             </ion-col>
         </ion-row>
     </ion-grid>

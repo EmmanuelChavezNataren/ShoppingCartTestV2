@@ -1,19 +1,18 @@
 import { Action, createReducer, on } from '@ngrx/store';
-
-import { User } from '../../app/models/user.model';
-import * as fromActions from '../actions/user.actions';
+import { User } from 'src/app/models/user.model';
+import * as fromActions from 'src/store/actions/user.actions';
 
 export const featureKey = 'user';
 export interface State {
-    user: User,
+    userInfo: User;
     isLoading: boolean;
     hasError: boolean;
     succeeded: boolean;
-    errors: string | any
+    errors: string | any;
 }
 
 export const initialState: State = {
-    user: null,
+    userInfo: null,
     isLoading: false,
     hasError: false,
     succeeded: false,
@@ -22,34 +21,32 @@ export const initialState: State = {
 
 const userReducer = createReducer(
     initialState,
-    on(fromActions.loadUser, (state): State => ({
+    on(fromActions.getUserError, (state): State => ({
         ...state,
         isLoading: true
     })),
 
-    on(fromActions.loadUserSuccess, (state, { user }): State => ({
+    on(fromActions.getUserSuccess, (state, action): State => ({
         ...state,
         isLoading: false,
         succeeded: true,
-        user: { ...user }
+        userInfo: { ...action.user }
     })),
 
-    on(fromActions.loadUserError, (state, { payload }): State => ({
+    on(fromActions.getUserError, (state, action): State => ({
         ...state,
         isLoading: false,
         succeeded: false,
         hasError: true,
-        errors: payload
+        errors: action.payload
     })),
 );
 
-export function reducer(state: State, action: Action): State {
-    return userReducer(state, action)
-}
+export const reducer = (state: State, action: Action) => userReducer(state, action);
 
 export const isLoading = (state: State) => state.isLoading;
 export const succeeded = (state: State) => state.succeeded;
 export const hasError = (state: State) => state.hasError;
 export const errorMessage = (state: State) => state.errors;
-export const user = (state: State) => state.user;
+export const user = (state: State) => state.userInfo;
 

@@ -1,16 +1,16 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { IonSlides } from '@ionic/angular';
 import { Observable, Subscription } from 'rxjs';
+import { Product } from 'src/app/models/product.model';
+import { ProductsFacade } from 'src/store/facades/products.facade';
 
-import { ProductsFacade } from '../../../../store/facades/products.facade';
-import { Product } from '../../../models/product.model';
 
 @Component({
   selector: 'app-offerts',
   templateUrl: './offerts.component.html',
   styleUrls: ['./offerts.component.scss'],
 })
-export class OffertsComponent implements OnInit {
+export class OffertsComponent implements OnInit, OnDestroy {
 
   @ViewChild('slideNav', { static: false }) slideNav: IonSlides;
   slideOps = {
@@ -19,7 +19,7 @@ export class OffertsComponent implements OnInit {
     loop: true,
     centeredSlides: true,
     spaceBetween: 5
-  }
+  };
 
   discountedProducts: Product[];
   subs: Subscription = new Subscription();
@@ -33,9 +33,7 @@ export class OffertsComponent implements OnInit {
     this.subs.add(
       this.productsFacade.products$.subscribe(
         products => {
-          this.discountedProducts = products.filter(product => {
-            return +product.discount > 0;
-          })
+          this.discountedProducts = products.filter(product => +product.discount > 0);
         }
       )
     );

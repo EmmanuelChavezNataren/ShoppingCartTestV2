@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
+import { User } from 'src/app/models/user.model';
 
-import { User } from '../../app/models/user.model';
 
 export const enum ActionTypes {
   loadUser = '[User] Load User Profile',
@@ -9,14 +9,14 @@ export const enum ActionTypes {
 
 }
 
-export const loadUser = createAction(ActionTypes.loadUser);
+export const getUser = createAction(ActionTypes.loadUser);
 
-export const loadUserSuccess = createAction(
+export const getUserSuccess = createAction(
   ActionTypes.loadUserSuccess,
   props<{ user: User }>()
 );
 
-export const loadUserError = createAction(
+export const getUserError = createAction(
   ActionTypes.loadUserFail,
   props<{ payload: string }>()
 );
