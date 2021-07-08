@@ -24,7 +24,7 @@ export const loadAllProductsError = createAction(
 );
 
 //Shopping Cart
-export const getShoppingCart = createAction(ActionTypes.loadProducts);
+export const getShoppingCart = createAction(ActionTypes.loadShoppingCart);
 
 export const getShoppingCartSuccess = createAction(
   ActionTypes.loadShoppingCartSuccess,

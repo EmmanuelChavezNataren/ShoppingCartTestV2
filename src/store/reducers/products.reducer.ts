@@ -38,14 +38,14 @@ const productsReducer = createReducer(
         ...state,
         isLoading: false,
         succeeded: true,
-        products: [...action.products]
+        allProducts: [...action.products]
     })),
 
     on(fromProducts.getShoppingCartSuccess, (state, action) => ({
         ...state,
         isLoading: false,
         succeeded: true,
-        cart: { ...action.cart }
+        shoppingCart: { ...action.cart }
     })),
 
     on(fromProducts.loadAllProductsError,
