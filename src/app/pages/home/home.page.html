@@ -4,7 +4,8 @@
             <ion-avatar slot="start" [routerLink]="['/', 'profile']">
                 <img [src]="userProfile?.picture.thumbnail" />
             </ion-avatar>
-            <ion-label [routerLink]="['/', 'profile']">{{'welcomeLbl' | translate }}, {{ userProfile?.fullName | split: " ": 0 }}</ion-label>
+            <ion-label class="welcome-lbl" [routerLink]="['/', 'profile']">{{'welcomeLbl' | translate }}, {{ userProfile?.fullName | split: " ": 0 }}</ion-label>
+            <app-cart-badge *ngIf="shoppingCartLength > 0" [shoppingCartLength]="shoppingCartLength"></app-cart-badge>
             <ion-button class="search-icon" fill="clear">
                 <ion-icon color="dark" slot="end" name="search"></ion-icon>
             </ion-button>

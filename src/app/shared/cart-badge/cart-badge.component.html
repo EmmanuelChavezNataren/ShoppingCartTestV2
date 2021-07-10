@@ -1,0 +1,4 @@
+<ion-button [routerLink]="['/','tabs', 'shopping-cart']" class="cart-badge-btn" fill="clear">
+    <ion-icon class="cart-badge-icon" color="dark" slot="icon-only" name="cart-outline"></ion-icon>
+    <ion-badge class="cart-badge" color="success">{{ shoppingCartLength }}</ion-badge>
+</ion-button>

@@ -6,6 +6,7 @@ import { ProductsFacade } from '../../../store/facades/products.facade';
 import { Product } from '../../models/product.model';
 import { User } from '../../models/user.model';
 import { StorageService } from '../../services/storage.service';
+import { ShoppingCart } from '../../models/cart.model';
 
 @Component({
   selector: 'app-home',
@@ -18,6 +19,8 @@ export class HomePage implements OnInit {
   subs: Subscription = new Subscription();
   isLoading$: Observable<boolean>;
   allProducts: Product[];
+  shoppingCart: ShoppingCart;
+  shoppingCartLength: number = 0;
 
 
   constructor(
@@ -30,11 +33,21 @@ export class HomePage implements OnInit {
   async ngOnInit() {
     this.userProfile = await this.storage.getObject(StorageItems.userInfo);
     this.productsFacade.getAllProducts();
+    this.productsFacade.getShoppingCart();
     this.subs.add(
       this.productsFacade.products$.subscribe(
         products => {
           this.allProducts = products;
         }));
+
+    this.subs.add(
+      this.productsFacade.shoppingCart$.subscribe(
+        cart => {
+          this.shoppingCart = cart;
+          this.shoppingCartLength = this.shoppingCart.products.length;
+        }));
+
+
     this.isLoading$ = this.productsFacade.isLoading$;
   }
 

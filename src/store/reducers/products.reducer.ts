@@ -1,21 +1,24 @@
 import { Action, createReducer, on } from '@ngrx/store';
+import { ShoppingCart } from 'src/app/models/cart.model';
+import { Product } from 'src/app/models/product.model';
+import * as fromProducts from 'src/store/actions/products.actions';
 
-import { Product } from '../../app/models/product.model';
-import * as fromProducts from '../actions/products.actions';
 
 
 export const featureKey = 'products';
 
 export interface State {
-    products: Product[],
-    isLoading: boolean,
-    succeeded: boolean
-    hasError: boolean
-    errors: string | any
+    allProducts: Product[];
+    shoppingCart: ShoppingCart;
+    isLoading: boolean;
+    succeeded: boolean;
+    hasError: boolean;
+    errors: string | any;
 }
 
 export const initialState: State = {
-    products: [],
+    allProducts: [],
+    shoppingCart: null,
     isLoading: false,
     succeeded: false,
     hasError: false,
@@ -24,35 +27,43 @@ export const initialState: State = {
 
 const productsReducer = createReducer(
     initialState,
-    on(fromProducts.loadAllProducts, (state) => ({
-        ...state,
-        isLoading: true
-    })),
+    on(fromProducts.loadAllProducts,
+        fromProducts.getShoppingCart,
+        (state) => ({
+            ...state,
+            isLoading: true
+        })),
 
-    on(fromProducts.loadAllProductsSuccess, (state, { products }) => ({
+    on(fromProducts.loadAllProductsSuccess, (state, action) => ({
         ...state,
         isLoading: false,
         succeeded: true,
-        products: [...products]
+        allProducts: [...action.products]
     })),
 
-    on(fromProducts.loadAllProductsError, (state, { payload }) => ({
+    on(fromProducts.getShoppingCartSuccess, (state, action) => ({
         ...state,
         isLoading: false,
-        succeeded: false,
-        hasError: true,
-        errors: payload
+        succeeded: true,
+        shoppingCart: { ...action.cart }
     })),
+
+    on(fromProducts.loadAllProductsError,
+        fromProducts.getShoppingCartFail,
+        (state, { payload }) => ({
+            ...state,
+            isLoading: false,
+            succeeded: false,
+            hasError: true,
+            errors: payload
+        })),
 );
 
-export function reducer(state: State | undefined, action: Action): State {
-    return productsReducer(state, action);
-}
+export const reducer = (state: State | undefined, action: Action) => productsReducer(state, action);
 
 export const isLoading = (state: State) => state.isLoading;
 export const succeeded = (state: State) => state.succeeded;
 export const hasError = (state: State) => state.hasError;
 export const errorMessage = (state: State) => state.errors;
-export const products = (state: State) => state.products;
-
-
+export const products = (state: State) => state.allProducts;
+export const cart = (state: State) => state.shoppingCart;

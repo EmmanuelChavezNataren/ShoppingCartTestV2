@@ -2,11 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ShoppingCart } from 'src/app/models/cart.model';
+import { Product } from 'src/app/models/product.model';
+import { User } from 'src/app/models/user.model';
+import { ResourcesService } from 'src/app/services/resources.service';
 
-import { Product } from '../app/models/product.model';
-import { User } from '../app/models/user.model';
-import { ResourcesService } from '../app/services/resources.service';
 import { IRepository } from './repository';
+
 
 @Injectable({
   providedIn: 'root'
@@ -28,4 +30,11 @@ export class ApiInteractionService extends IRepository {
       map(response => response)
     );
   }
+
+  getShoppingCart(): Observable<ShoppingCart> {
+    return this.doGet(ResourcesService.shoppingCart).pipe(
+      map(response => response)
+    );
+  }
+
 }

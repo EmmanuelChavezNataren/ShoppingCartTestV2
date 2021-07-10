@@ -59,11 +59,12 @@ ion-content {
 }
 
 ion-button {
-    text-transform: none;
     letter-spacing: 0;
+    text-transform: none;
 }
 
-ion-button.primary-buttons {
+ion-button.primary-buttons,
+ion-fab-button.primary-buttons {
     --box-shadow: 0 0.5rem 0.9375rem rgba(var(--ion-color-primary-rgb), 0.5);
     font-family: "Raleway-Bold";
     font-size: 1.125rem;
@@ -96,6 +97,7 @@ ion-label.title-section.sc-ion-label-md-h.sc-ion-label-md-s {
     font-family: 'Poppins-Medium';
     font-size: 1.5rem;
     line-height: 2.25rem;
+    margin: 0;
 }
 
 ion-grid.grid-no-padding {
@@ -110,8 +112,8 @@ ion-label.product-price.sc-ion-label-md-h.sc-ion-label-md-s {
     font-family: 'Poppins-Bold';
     font-size: 0.875rem;
     line-height: 1.3125rem;
-    white-space: pre-wrap;
     margin: 0%;
+    white-space: pre-wrap;
 }
 
 .is-favorite {

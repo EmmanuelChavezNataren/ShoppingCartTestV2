@@ -2,11 +2,12 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import { ShoppingCart } from 'src/app/models/cart.model';
+import { Product } from 'src/app/models/product.model';
+import * as fromActions from 'src/store/actions/products.actions';
+import * as fromReducers from 'src/store/reducers/products.reducer';
+import * as fromSelector from 'src/store/selectors/products.selectors';
 
-import { Product } from '../../app/models/product.model';
-import * as fromActions from '../actions/products.actions';
-import * as fromReducers from '../reducers/products.reducer';
-import * as fromSelector from '../selectors/products.selectors';
 
 
 @Injectable()
@@ -33,8 +34,16 @@ export class ProductsFacade {
         return this.store.select(fromSelector.getProducts).pipe(filter((x) => !!x));
     }
 
+    get shoppingCart$(): Observable<ShoppingCart> {
+        return this.store.select(fromSelector.getShoppingCart).pipe(filter((x) => !!x));
+    }
+
     getAllProducts() {
         this.store.dispatch(fromActions.loadAllProducts());
+    }
+
+    getShoppingCart() {
+        this.store.dispatch(fromActions.getShoppingCart());
     }
 
 
