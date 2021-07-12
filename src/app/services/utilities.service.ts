@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Network } from '@ionic-native/network/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
@@ -16,7 +15,6 @@ export class UtilitiesService {
   private loaderTimeout;
 
   constructor(
-    private network: Network,
     private loadingCtrl: LoadingController,
     private translateService: TranslateService,
     private toast: Toast,
@@ -52,20 +50,10 @@ export class UtilitiesService {
     const description: string = this.translate('networkMessage');
     const button: string = this.translate('buttonOk');
 
-    if (this.network.type) {
-      if (this.network.type !== 'none') {
-        if (on) { on(); }
-      } else {
-        this.hideLoader();
-        this.showBasicAlert(title, description, button);
-      }
+    if (navigator.onLine) {
+      if (on) { on(); }
     } else {
-      if (navigator.onLine) {
-        if (on) { on(); }
-      } else {
-        this.hideLoader();
-        this.showBasicAlert(title, description, button);
-      }
+      this.showBasicAlert(title, description, button);
     }
   }
 
