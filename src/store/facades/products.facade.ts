@@ -46,5 +46,11 @@ export class ProductsFacade {
         this.store.dispatch(fromActions.getShoppingCart());
     }
 
+    removeFromShoppingCart(productId: number) {
+        this.store.dispatch(fromActions.removeFromShoppingCart({ productId }));
+    }
+
+
+
 
 }

@@ -144,7 +144,7 @@ export class UtilitiesService {
  * @param position Posici&oacute;n del mensaje, por defecto se muestra en el centro
  */
   public showMessage(defaultMessage: string, translateKey?: string, duration?: string, position?: string, params?: Object): void {
-    let time: string = undefined == duration ? '2000' : duration;
+    let time: string = undefined == duration ? '3000' : duration;
     let pos = undefined == position ? 'center' : position;
     let message: string = "";//this.translate(translateKey);
     if (translateKey != undefined && null != translateKey && "" != translateKey) {
@@ -158,18 +158,46 @@ export class UtilitiesService {
     );
   }
 
-  /*
-*M&eacute;todo para mostrar un alerta basica
-*/
-  showBasicAlert(title, subTitle, buttonMessage, buttonAction?) {
-    const alert = this.alertCtrl.create({
+  showBasicAlert(title: string, subTitle: string, buttonSuccessTitle: string, buttonAction?: () => void) {
+    this.alertCtrl.create({
       header: title,
       subHeader: subTitle,
       buttons: [
         {
-          text: buttonMessage,
+          text: buttonSuccessTitle,
           handler: () => {
             if (buttonAction) buttonAction();
+          }
+        }
+      ]
+    }).then(alertEl => {
+      alertEl.present();
+    });
+
+  }
+
+  showConfirmAlert(
+    title: string,
+    subTitle: string,
+    buttonSuccessTitle: string,
+    buttonCancelTitle: string,
+    buttonSuccessAction?: () => void,
+    buttonCancelAction?: () => void) {
+    this.alertCtrl.create({
+      header: title,
+      subHeader: subTitle,
+      buttons: [
+        {
+          text: buttonCancelTitle,
+          role: 'cancel',
+          handler: () => {
+            if (buttonCancelAction) buttonCancelAction();
+          }
+        },
+        {
+          text: buttonSuccessTitle,
+          handler: () => {
+            if (buttonSuccessAction) buttonSuccessAction();
           }
         }
       ]

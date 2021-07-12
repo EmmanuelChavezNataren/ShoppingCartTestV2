@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
+
 import { ProductsFacade } from '../../../store/facades/products.facade';
 import { ShoppingCart } from '../../models/cart.model';
 import { UtilitiesService } from '../../services/utilities.service';
@@ -73,4 +74,19 @@ export class ShoppingCartPage implements OnInit, OnDestroy {
     this.isOpenInfoPayment = isOpenInfoPayment;
   }
 
+  removeFromShoppingCart(productId: number) {    
+    console.log('productId', productId);
+    
+    this.utilities.showConfirmAlert(
+      this.utilities.translate('confirmTitle'),
+      this.utilities.translate('confirmMessageDel'),
+      this.utilities.translate('buttonOk'),
+      this.utilities.translate('buttonCancel'),
+      () => {
+        this.productsFacade.removeFromShoppingCart(productId);
+        this.utilities.showMessage('Producto eliminado correctamente', this.utilities.translate('removeProductFromCart'));
+        this.calculateAmounts();
+      }
+    );
+  }
 }

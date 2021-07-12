@@ -4,7 +4,6 @@ import { Product } from 'src/app/models/product.model';
 import * as fromProducts from 'src/store/actions/products.actions';
 
 
-
 export const featureKey = 'products';
 
 export interface State {
@@ -57,6 +56,20 @@ const productsReducer = createReducer(
             hasError: true,
             errors: payload
         })),
+
+    on(fromProducts.removeFromShoppingCart, (state, action) => ({
+        ...state,
+        isLoading: false,
+        succeeded: true,
+        shoppingCart: {
+            products: [
+                ...state.shoppingCart.products.filter(product => product.id !== action.productId)
+            ],
+            shipping: state.shoppingCart.shipping,
+            subtotal: state.shoppingCart.subtotal,
+            total: state.shoppingCart.total
+        }
+    })),
 );
 
 export const reducer = (state: State | undefined, action: Action) => productsReducer(state, action);
