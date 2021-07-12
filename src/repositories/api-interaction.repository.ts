@@ -5,7 +5,7 @@ import { map } from 'rxjs/operators';
 import { ShoppingCart } from 'src/app/models/cart.model';
 import { Product } from 'src/app/models/product.model';
 import { User } from 'src/app/models/user.model';
-import { endPoints } from 'src/environments/environment';
+import { environment } from 'src/environments/environment';
 
 import { IRepository } from './repository';
 
@@ -20,19 +20,19 @@ export class ApiInteractionService extends IRepository {
   }
 
   getUserProfile(): Observable<User> {
-    return this.doGet(endPoints.userProfile).pipe(
+    return this.doGet(environment.userProfileUrl).pipe(
       map(response => response)
     );
   }
 
   getAllProducts(): Observable<Product[]> {
-    return this.doGet(endPoints.allProducts).pipe(
+    return this.doGet(environment.allProductsUrl).pipe(
       map(response => response)
     );
   }
 
   getShoppingCart(): Observable<ShoppingCart> {
-    return this.doGet(endPoints.shoppingCart).pipe(
+    return this.doGet(environment.shoppingCartUrl).pipe(
       map(response => response)
     );
   }
