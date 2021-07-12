@@ -1,6 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-
-import * as fromReducer from '../reducers/products.reducer';
+import * as fromReducer from 'src/store/reducers/products.reducer';
 
 const getState = createFeatureSelector<fromReducer.State>(
     fromReducer.featureKey
@@ -14,3 +13,4 @@ export const getHasError = createSelector(getPageState, fromReducer.hasError);
 export const getErrorMessage = createSelector(getPageState, fromReducer.errorMessage);
 
 export const getProducts = createSelector(getPageState, fromReducer.products);
+export const getShoppingCart = createSelector(getPageState, fromReducer.cart);

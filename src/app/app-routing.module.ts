@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+
 import { AuthGuard } from './auth/auth.guard';
 import { TutorialGuard } from './guards/tutorial.guard';
 
@@ -16,16 +17,16 @@ const routes: Routes = [
   },
   {
     path: 'tutorial',
-    loadChildren: () => import('./pages/tutorial/tutorial.module').then( m => m.TutorialPageModule)
+    loadChildren: () => import('./pages/tutorial/tutorial.module').then(m => m.TutorialPageModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./auth/login/login.module').then( m => m.LoginPageModule),
+    loadChildren: () => import('./auth/login/login.module').then(m => m.LoginPageModule),
     canLoad: [TutorialGuard]
   },
   {
     path: 'profile',
-    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfilePageModule)
   },
 ];
 @NgModule({
@@ -34,4 +35,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

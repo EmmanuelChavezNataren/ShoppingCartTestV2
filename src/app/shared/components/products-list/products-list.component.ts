@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Product } from 'src/app/models/product.model';
 
-import { Product } from '../../../models/product.model';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { Product } from '../../../models/product.model';
 })
 export class ProductsListComponent implements OnInit {
   @Input() products: Product[];
-  @Input() isLoading: Observable<boolean>;
+  @Input() isLoading: boolean;
   @Input() isDiscover: boolean;
 
   constructor() { }

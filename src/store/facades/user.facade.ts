@@ -2,11 +2,10 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
-
-import { User } from '../../app/models/user.model';
-import * as fromActions from '../actions/user.actions';
-import * as fromReducers from '../reducers/user.reducer';
-import * as fromSelector from '../selectors/user.selectors';
+import { User } from 'src/app/models/user.model';
+import * as fromActions from 'src/store/actions/user.actions';
+import * as fromReducers from 'src/store/reducers/user.reducer';
+import * as fromSelector from 'src/store/selectors/user.selectors';
 
 @Injectable()
 export class UserFacade {
@@ -33,7 +32,7 @@ export class UserFacade {
     }
 
     loadUser() {
-        this.store.dispatch(fromActions.loadUser());
+        this.store.dispatch(fromActions.getUser());
     }
 
 }

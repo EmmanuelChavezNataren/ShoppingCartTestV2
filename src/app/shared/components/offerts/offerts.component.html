@@ -1,4 +1,4 @@
-<ion-slides [options]="slideOps" *ngIf="!(isLoading$ | async)">
+<ion-slides [options]="slideOps" *ngIf="(isLoading$ | async ) !== true">
     <ion-slide *ngFor="let product of discountedProducts">
         <ion-card class="products-card">
             <ion-card-header class="products-header-card">

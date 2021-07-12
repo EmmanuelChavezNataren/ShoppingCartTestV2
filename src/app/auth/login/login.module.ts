@@ -5,12 +5,12 @@ import { IonicModule } from '@ionic/angular';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
+import { PipesModule } from 'src/app/pipes/pipes.module';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { UserEffect } from 'src/store/effects/user.effects';
+import { UserFacade } from 'src/store/facades/user.facade';
+import * as fromUser from 'src/store/reducers/user.reducer';
 
-import * as fromUser from '../../../store/reducers/user.reducer';
-import { PipesModule } from '../../pipes/pipes.module';
-import { UserEffect } from './../../../store/effects/user.effects';
-import { UserFacade } from './../../../store/facades/user.facade';
-import { SharedModule } from './../../shared/shared.module';
 import { LoginPageRoutingModule } from './login-routing.module';
 import { LoginPage } from './login.page';
 
