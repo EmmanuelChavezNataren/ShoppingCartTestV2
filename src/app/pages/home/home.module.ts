@@ -5,14 +5,14 @@ import { IonicModule } from '@ionic/angular';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
+import { PipesModule } from 'src/app/pipes/pipes.module';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { ProductsEffect } from 'src/store/effects/products.effects';
+import { UserEffect } from 'src/store/effects/user.effects';
+import { ProductsFacade } from 'src/store/facades/products.facade';
+import * as fromProducts from 'src/store/reducers/products.reducer';
+import * as fromUser from 'src/store/reducers/user.reducer';
 
-import { ProductsEffect } from '../../../store/effects/products.effects';
-import * as fromProducts from '../../../store/reducers/products.reducer';
-import * as fromUser from '../../../store/reducers/user.reducer';
-import { PipesModule } from '../../pipes/pipes.module';
-import { UserEffect } from './../../../store/effects/user.effects';
-import { ProductsFacade } from './../../../store/facades/products.facade';
-import { SharedModule } from './../../shared/shared.module';
 import { HomePageRoutingModule } from './home-routing.module';
 import { HomePage } from './home.page';
 

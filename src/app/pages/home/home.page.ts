@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { StorageItems } from 'src/app/models/enums/storage.enum';
 
@@ -14,7 +14,7 @@ import { UtilitiesService } from '../../services/utilities.service';
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
 })
-export class HomePage implements OnInit {
+export class HomePage implements OnInit, OnDestroy {
 
   userProfile: User;
   subs: Subscription = new Subscription();

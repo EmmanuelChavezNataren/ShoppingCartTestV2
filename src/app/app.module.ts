@@ -2,7 +2,6 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import { Network } from '@ionic-native/network/ngx';
 import { Toast } from '@ionic-native/toast/ngx';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { EffectsModule } from '@ngrx/effects';
@@ -19,9 +18,9 @@ import { PipesModule } from './pipes/pipes.module';
 
 
 
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
+export const createTranslateLoader = (http: HttpClient) =>
+  new TranslateHttpLoader(http, './assets/i18n/', '.json');
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -49,7 +48,6 @@ export function createTranslateLoader(http: HttpClient) {
     provide: RouteReuseStrategy,
     useClass: IonicRouteStrategy
   },
-    Network,
     Toast
 
   ],

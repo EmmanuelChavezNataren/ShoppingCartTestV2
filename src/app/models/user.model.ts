@@ -1,5 +1,5 @@
-import { Gender } from "./enums/gender.enum";
-import { Picture } from "./picture.model";
+import { Gender } from './enums/gender.enum';
+import { Picture } from './picture.model';
 
 export interface User{
     fullName: string;

@@ -9,7 +9,8 @@
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
-        "e2e": "ng e2e"
+        "e2e": "ng e2e",
+        "check": "ng lint && ng test --watch=false --browsers ChromeHeadless"
     },
     "private": true,
     "dependencies": {
@@ -26,7 +27,6 @@
         "@capacitor/status-bar": "1.0.1",
         "@capacitor/storage": "^1.0.1",
         "@ionic-native/core": "^5.33.1",
-        "@ionic-native/network": "^5.33.1",
         "@ionic-native/toast": "^5.33.1",
         "@ionic/angular": "^5.5.2",
         "@ngrx/effects": "^12.1.0",
@@ -34,7 +34,6 @@
         "@ngrx/store-devtools": "^12.1.0",
         "@ngx-translate/core": "^13.0.0",
         "@ngx-translate/http-loader": "^6.0.0",
-        "cordova-plugin-network-information": "^3.0.0",
         "rxjs": "~6.6.0",
         "tslib": "^2.0.0",
         "zone.js": "~0.11.4"
@@ -54,9 +53,9 @@
         "@types/jasmine": "~3.6.0",
         "@types/jasminewd2": "~2.0.3",
         "@types/node": "^12.11.1",
-        "@typescript-eslint/eslint-plugin": "^4.28.0",
-        "@typescript-eslint/parser": "^4.28.0",
-        "eslint": "^7.29.0",
+        "@typescript-eslint/eslint-plugin": "^4.28.2",
+        "@typescript-eslint/parser": "^4.28.2",
+        "eslint": "^7.30.0",
         "eslint-config-standard": "^16.0.3",
         "eslint-plugin-import": "^2.23.4",
         "eslint-plugin-jsdoc": "30.7.6",

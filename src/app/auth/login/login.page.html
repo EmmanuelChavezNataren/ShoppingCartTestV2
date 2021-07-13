@@ -1,7 +1,7 @@
 <ion-content>
-    <app-logo-header *ngIf="!(isLoading$ | async )"></app-logo-header>
+    <app-logo-header *ngIf="(isLoading$ | async ) !== true"></app-logo-header>
 
-    <ion-grid *ngIf="!(isLoading$ | async )" class="ion-no-padding ion-align-self-center">
+    <ion-grid *ngIf="(isLoading$ | async ) !== true" class="ion-no-padding ion-align-self-center">
         <ion-row>
             <ion-col class="user-avatar">
                 <ion-avatar>
@@ -15,7 +15,7 @@
             </ion-col>
         </ion-row>
     </ion-grid>
-    <ion-grid *ngIf="!(isLoading$ | async )" class="ion-no-padding ion-align-self-center login-buttons">
+    <ion-grid *ngIf="(isLoading$ | async ) !== true" class="ion-no-padding ion-align-self-center login-buttons">
         <ion-row>
             <ion-col class="ion-no-padding ion-text-center">
                 <ion-button class="primary-buttons" (click)="login()" shape="round" expand="full">

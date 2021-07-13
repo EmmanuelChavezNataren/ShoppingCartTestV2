@@ -5,11 +5,11 @@ import { IonicModule } from '@ionic/angular';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { TranslateModule } from '@ngx-translate/core';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { ProductsEffect } from 'src/store/effects/products.effects';
+import { ProductsFacade } from 'src/store/facades/products.facade';
+import * as fromProducts from 'src/store/reducers/products.reducer';
 
-import { ProductsEffect } from '../../../../store/effects/products.effects';
-import { ProductsFacade } from '../../../../store/facades/products.facade';
-import * as fromProducts from '../../../../store/reducers/products.reducer';
-import { SharedModule } from '../../../shared/shared.module';
 import { FavoritesPageRoutingModule } from './favorites-routing.module';
 import { FavoritesPage } from './favorites.page';
 

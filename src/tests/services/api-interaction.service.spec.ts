@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
+import { ApiInteractionService } from 'src/repositories/api-interaction.repository';
 
-import { ApiInteractionService } from '../../repositories/api-interaction.repository';
 
 describe('ApiInteractionService', () => {
   let service: ApiInteractionService;
