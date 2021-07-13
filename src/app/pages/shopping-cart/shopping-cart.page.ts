@@ -74,9 +74,7 @@ export class ShoppingCartPage implements OnInit, OnDestroy {
     this.isOpenInfoPayment = isOpenInfoPayment;
   }
 
-  removeFromShoppingCart(productId: number) {    
-    console.log('productId', productId);
-    
+  removeFromShoppingCart(productId: number) {
     this.utilities.showConfirmAlert(
       this.utilities.translate('confirmTitle'),
       this.utilities.translate('confirmMessageDel'),

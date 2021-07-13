@@ -50,6 +50,14 @@ export class ProductsFacade {
         this.store.dispatch(fromActions.removeFromShoppingCart({ productId }));
     }
 
+    addToShoppingCart(product: Product) {
+        this.store.dispatch(fromActions.addToShoppingCart({ product }));
+    }
+
+    setIsFavorite(productId: number, isFavorite: boolean) {
+        this.store.dispatch(fromActions.setIsFavorite({ productId, isFavorite }));
+    }
+
 
 
 

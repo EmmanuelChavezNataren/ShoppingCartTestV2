@@ -3,10 +3,11 @@ import { Observable, Subscription } from 'rxjs';
 import { StorageItems } from 'src/app/models/enums/storage.enum';
 
 import { ProductsFacade } from '../../../store/facades/products.facade';
+import { ShoppingCart } from '../../models/cart.model';
 import { Product } from '../../models/product.model';
 import { User } from '../../models/user.model';
 import { StorageService } from '../../services/storage.service';
-import { ShoppingCart } from '../../models/cart.model';
+import { UtilitiesService } from '../../services/utilities.service';
 
 @Component({
   selector: 'app-home',
@@ -25,8 +26,8 @@ export class HomePage implements OnInit {
 
   constructor(
     private productsFacade: ProductsFacade,
-    private storage: StorageService
-
+    private storage: StorageService,
+    private utilities: UtilitiesService
   ) {
   }
 
@@ -53,6 +54,18 @@ export class HomePage implements OnInit {
 
   ngOnDestroy(): void {
     this.subs.unsubscribe();
+  }
+
+  setIsFavorite(favorite: { productId: number, isFavorite: boolean }) {
+    this.productsFacade.setIsFavorite(favorite.productId, favorite.isFavorite);
+    if (favorite.isFavorite) {
+      this.utilities.showMessage('Producto agregado correctamente', this.utilities.translate('addCartMessage'));
+    }
+  }
+
+  addToCart(product: Product) {
+    this.productsFacade.addToShoppingCart(product);
+    this.utilities.showMessage('Producto agregado correctamente', this.utilities.translate('addCartMessage'));
   }
 
 }

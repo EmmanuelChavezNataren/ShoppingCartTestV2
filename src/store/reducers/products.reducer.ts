@@ -70,6 +70,39 @@ const productsReducer = createReducer(
             total: state.shoppingCart.total
         }
     })),
+
+    on(fromProducts.addToShoppingCart, (state, action) => ({
+        ...state,
+        isLoading: false,
+        succeeded: true,
+        shoppingCart: {
+            products: [
+                ...state.shoppingCart.products,
+                {
+                    ...action.product,
+                    color: action.product.colors[0]
+                }
+            ],
+            shipping: state.shoppingCart.shipping,
+            subtotal: state.shoppingCart.subtotal,
+            total: state.shoppingCart.total
+        }
+    })),
+
+    on(fromProducts.setIsFavorite, (state, action) => ({
+        ...state,
+        isLoading: false,
+        succeeded: true,
+        allProducts: state.allProducts.map(product => {
+            if (product.id === action.productId) {
+                return {
+                    ...product,
+                    is_favorite: action.isFavorite
+                };
+            }
+            return product;
+        })
+    })),
 );
 
 export const reducer = (state: State | undefined, action: Action) => productsReducer(state, action);
