@@ -1,0 +1,24 @@
+ion-button.cart-badge-btn {
+    --padding-end: 0;
+    --padding-start: 0;
+    height: 1.875rem;
+    margin: 0;
+    width: 2.1875rem;
+}
+
+ion-badge.cart-badge {
+    border-radius: 50%;
+    font-family: 'Raleway-Bold';
+    font-size: 0.625rem;
+    height: 0.9375rem;
+    left: 50%;
+    line-height: 0.75;
+    position: absolute;
+    top: 10%;
+    width: 0.9375rem;
+}
+
+ion-icon.cart-badge-icon {
+    height: 1.5625rem;
+    width: 1.5625rem;
+}

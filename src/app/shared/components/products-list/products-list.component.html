@@ -4,8 +4,8 @@
             <ion-list *ngIf="!isLoading">
                 <ion-grid class="product-list-container-grd">
                     <ion-row>
-                        <ion-col size="6" *ngFor="let product of products">
-                            <ion-card class="products-card">
+                        <ion-col size="6" *ngFor="let product of products, let i = index">
+                            <ion-card class="products-card" *ngIf="!isOpenAddCartList[i]">
                                 <ion-card-header class="products-header-card">
                                     <ion-card-subtitle class="product-brand">{{ product.brand }}</ion-card-subtitle>
                                     <ion-grid class="product-header-grd">
@@ -19,7 +19,7 @@
                                             </ion-col>
                                             <ion-col class="product-favorite-icon-col" size="2">
                                                 <div class="product-favorite-dv">
-                                                    <ion-button class="product-favorite-btn" slot="end" fill="clear">
+                                                    <ion-button class="product-favorite-btn" slot="end" fill="clear" (click)="setProductIsFavorite(product.id, i, !product.is_favorite)">
                                                         <ion-icon [class.is-favorite]="product.is_favorite" [class.is-favorite-disabled]="!product.is_favorite" slot="icon-only" name="heart-circle">
                                                         </ion-icon>
                                                     </ion-button>
@@ -73,7 +73,7 @@
                                                 </ion-row>
                                             </ion-col>
                                             <ion-col *ngIf="isDiscover" size="4" class="button-add-col">
-                                                <ion-button class="button-add">
+                                                <ion-button class="button-add" (click)="setIsOpenAddCartList(i, true)">
                                                     <ion-icon slot="icon-only" name="add"></ion-icon>
                                                 </ion-button>
                                             </ion-col>
@@ -81,6 +81,27 @@
                                     </ion-grid>
                                 </ion-card-content>
                             </ion-card>
+
+                            <ion-card class="products-card" *ngIf="isDiscover && isOpenAddCartList[i]">
+                                <ion-card-header class="add-to-favorites-card-header">
+                                    <div class="add-divs add-to-favorite-div" (click)="setProductIsFavorite(product.id, i, true)">
+                                        <p class="add-txts add-to-favorites-txt">{{ 'addFavorites' | translate }}</p>
+                                    </div>
+                                    <ion-fab vertical="top" horizontal="end">
+                                        <ion-fab-button class="close-add-section-fab" (click)="setIsOpenAddCartList(i, false)">
+                                            <ion-icon name="chevron-down-outline"></ion-icon>
+                                        </ion-fab-button>
+                                    </ion-fab>
+                                </ion-card-header>
+                                <ion-card-content class="add-to-favorites-card-content">
+                                    <div class="add-divs add-to-cart-div" (click)="addProductToCart(product, i)">
+                                        <ion-icon class="add-to-cart-icon" src="assets/icon/add_shopping_cart.svg">
+                                        </ion-icon>
+                                        <p class="add-txts add-to-cart-txt">{{ 'addCart' | translate }}</p>
+                                    </div>
+                                </ion-card-content>
+                            </ion-card>
+
                         </ion-col>
                     </ion-row>
                 </ion-grid>
