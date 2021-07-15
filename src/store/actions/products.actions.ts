@@ -9,6 +9,9 @@ export const enum ActionTypes {
   loadShoppingCart = '[Cart] Load Shopping Cart',
   loadShoppingCartSuccess = '[Cart] Load Shopping Cart Success',
   loadShoppingCartFail = '[Cart] Load Shopping Cart Fail',
+  removeProduct = '[Cart] Remove Product to Cart',
+  addProduct = '[Cart] Add Product to Cart',
+  isFavoriteProduct = '[Favorite] Add or Remove to Favorite'
 }
 
 export const loadAllProducts = createAction(ActionTypes.loadProducts);
@@ -34,4 +37,19 @@ export const getShoppingCartSuccess = createAction(
 export const getShoppingCartFail = createAction(
   ActionTypes.loadShoppingCartFail,
   props<{ payload: string }>()
+);
+
+export const removeFromShoppingCart = createAction(
+  ActionTypes.removeProduct,
+  props<{ productId: number }>()
+);
+
+export const addToShoppingCart = createAction(
+  ActionTypes.addProduct,
+  props<{ product: Product }>()
+);
+
+export const setIsFavorite = createAction(
+  ActionTypes.isFavoriteProduct,
+  props<{ productId: number, isFavorite: boolean }>()
 );

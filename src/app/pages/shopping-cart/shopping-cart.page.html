@@ -1,3 +1,137 @@
 <ion-content>
+    <ion-grid class="grid-no-padding shopping-cart-parent-grd">
+        <ion-row>
+            <ion-col>
+                <ion-item lines="none">
+                    <ion-label class="title-section">{{ 'shoppingCartLbl' | translate }}</ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+        <ion-row class="shopping-cart-list-container-row">
+            <ion-col class="shopping-cart-list-container-col">
+                <ion-list *ngIf="(isLoading$ | async) !== true" class="shopping-cart-list">
+                    <ion-item lines="none" *ngIf="isEmptyShoppingCart">
+                        <ion-label class="payment-detail-title">
+                            {{'emptyShoppingCart' | translate}}
+                        </ion-label>
+                    </ion-item>
+
+                    <ion-card class="shopping-cart-card" *ngFor="let product of shoppingCart?.products">
+                        <ion-card-content class="shopping-cart-card-content">
+                            <ion-grid class="ion-no-padding grid-no-padding shopping-cart-card-grd">
+                                <ion-row class="shopping-cart-card-row">
+
+                                    <ion-col class="ion-no-padding shopping-cart-prod-img-col" size="2">
+                                        <ion-img class="shopping-cart-prod-img" [src]="product.product_image"></ion-img>
+                                    </ion-col>
+
+                                    <ion-col class="ion-no-padding shopping-cart-prod-info-col" size="6">
+                                        <p class="shopping-cart-prod-info shopping-cart-prod-name">{{ product.product_name }}</p>
+                                        <p class="shopping-cart-prod-info shopping-cart-prod-color">Color {{ product.color.name }}</p>
+                                    </ion-col>
+
+                                    <ion-col class="ion-no-padding shopping-cart-price-col" size="3">
+                                        <p>
+                                            <ion-label class="product-price">{{ product.product_price | currency}}</ion-label>
+                                        </p>
+                                    </ion-col>
+
+                                    <ion-col class="ion-no-padding shopping-cart-delete-col" size="1">
+                                        <ion-button class="shopping-cart-delete-btn" fill="clear" (click)="removeFromShoppingCart(product.id)">
+                                            <ion-icon class="shopping-cart-delete-icon" slot="icon-only" name="remove-circle-outline"></ion-icon>
+                                        </ion-button>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-grid>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-list>
+
+
+                <ion-list *ngIf="(isLoading$ | async)" class="shopping-cart-list">
+                    <ion-card class="shopping-cart-card" *ngFor="let item of [1,2,3]">
+                        <ion-card-content class="shopping-cart-card-content">
+                            <ion-grid class="ion-no-padding grid-no-padding shopping-cart-card-grd">
+                                <ion-row class="shopping-cart-card-row">
+
+                                    <ion-col class="ion-no-padding shopping-cart-prod-img-col" size="2">
+                                        <ion-skeleton-text animated style="width: 100%; height: 2vh; margin: 4% 0;">
+                                        </ion-skeleton-text>
+                                    </ion-col>
+
+                                    <ion-col class="ion-no-padding shopping-cart-prod-info-col" size="6">
+                                        <ion-skeleton-text animated style="width: 100%; height: 2vh; margin: 4% 0;">
+                                        </ion-skeleton-text>
+                                        <ion-skeleton-text animated style="width: 100%; height: 2vh; margin: 4% 0;">
+                                        </ion-skeleton-text>
+                                    </ion-col>
+
+                                    <ion-col class="ion-no-padding shopping-cart-price-col" size="3">
+                                        <p>
+                                            <ion-skeleton-text animated style="width: 100%; height: 2vh; margin: 4% 0;">
+                                            </ion-skeleton-text>
+                                        </p>
+                                    </ion-col>
+
+                                    <ion-col class="ion-no-padding shopping-cart-delete-col" size="1">
+                                        <ion-skeleton-text animated style="width: 100%; height: 2vh; margin: 4% 0;">
+                                        </ion-skeleton-text>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-grid>
+                        </ion-card-content>
+                    </ion-card>
+                </ion-list>
+
+            </ion-col>
+        </ion-row>
+        <ion-row class="payment-detail-row">
+            <ion-col class="payment-detail-col">
+                <ion-card *ngIf="isOpenInfoPayment" class="payment-detail-card">
+                    <ion-card-header class="payment-detail-card-header">
+                        <div class="payment-detail-down-div" (click)="setIsOpenInfoPayment(false)">
+                            <ion-icon class="payment-detail-down-icon" name="chevron-down-outline"></ion-icon>
+                        </div>
+
+                        <ion-card-title class="payment-detail-title">{{ 'infoPayment' | translate }}</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content class="payment-detail-card-content">
+                        <ion-item>
+                            <ion-label class="payment-detail-title payment-detail-subtitle">{{'subtotal' | translate}}:</ion-label>
+                            <ion-label class="product-price payment-detail-price" slot="end">{{subtotal | currency}}</ion-label>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label class="payment-detail-title payment-detail-subtitle">{{'shipping' | translate}}:</ion-label>
+                            <ion-label class="product-price payment-detail-price" slot="end">{{shipping | currency}}</ion-label>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label class="payment-detail-title payment-detail-subtitle">{{'discount' | translate}}:</ion-label>
+                            <ion-label class="product-price payment-detail-price" slot="end">{{discount | currency}}</ion-label>
+                        </ion-item>
+
+                        <ion-item lines="none">
+                            <ion-label class="payment-detail-title">{{'total' | translate}}</ion-label>
+                            <ion-label class="product-price payment-detail-price" slot="end">{{total | currency}}</ion-label>
+                        </ion-item>
+                    </ion-card-content>
+                </ion-card>
+
+
+                <ion-item class="payment-detail-show-item" lines="none" *ngIf="!isOpenInfoPayment" (click)="setIsOpenInfoPayment(true)" detail detailIcon="chevron-up-outline">
+                    <ion-label class="payment-detail-title payment-detail-subtitle">{{'infoPayment' | translate}}
+                    </ion-label>
+                </ion-item>
+
+                <ion-fab class="payment-fab" vertical="bottom">
+                    <ion-fab-button class="payment-fab-btn primary-buttons">
+                        <ion-label>{{ 'proceedPayment' | translate}}</ion-label>
+                    </ion-fab-button>
+                </ion-fab>
+
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
 </ion-content>
