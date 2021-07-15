@@ -54,24 +54,19 @@
     --ion-color-dark-shade: #000000;
     --ion-color-dark-tint: #1a1a1a;
     /** medium **/
-    --ion-color-medium: #92949c;
-    --ion-color-medium-rgb: 146, 148, 156;
-    --ion-color-medium-contrast: #ffffff;
-    --ion-color-medium-contrast-rgb: 255, 255, 255;
-    --ion-color-medium-shade: #808289;
-    --ion-color-medium-tint: #9d9fa6;
+    --ion-color-medium: #BDBCBC;
+    --ion-color-medium-rgb: 189, 188, 188;
+    --ion-color-medium-contrast: #000000;
+    --ion-color-medium-contrast-rgb: 0, 0, 0;
+    --ion-color-medium-shade: #a6a5a5;
+    --ion-color-medium-tint: #c4c3c3;
     /** light **/
-    --ion-color-light: #f4f5f8;
-    --ion-color-light-rgb: 244, 245, 248;
+    --ion-color-light: #DCDCDC;
+    --ion-color-light-rgb: 220, 220, 220;
     --ion-color-light-contrast: #000000;
     --ion-color-light-contrast-rgb: 0, 0, 0;
-    --ion-color-light-shade: #d7d8da;
-    --ion-color-light-tint: #f5f6f9;
-    /** Text Color **/
-    --ion-text-color: var(--ion-color-secondary);
-    --ion-text-color-contrast: #DCDCDC;
-    --ion-text-color-shade: #BDBCBC;
-    --ion-text-color-tint: #000000;
+    --ion-color-light-shade: #c2c2c2;
+    --ion-color-light-tint: #e0e0e0;
     /** Text Color Customs  **/
     --ion-color-discount-price: #F8BA88;
 }

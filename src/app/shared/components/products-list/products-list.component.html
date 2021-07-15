@@ -5,7 +5,7 @@
                 <ion-grid class="product-list-container-grd">
                     <ion-row>
                         <ion-col size="6" *ngFor="let product of products">
-                            <ion-card class="products-card">
+                            <ion-card class="products-card" (click)="getProductDetail(product)">
                                 <ion-card-header class="products-header-card">
                                     <ion-card-subtitle class="product-brand">{{ product.brand }}</ion-card-subtitle>
                                     <ion-grid class="product-header-grd">
@@ -20,7 +20,7 @@
                                             <ion-col class="product-favorite-icon-col" size="2">
                                                 <div class="product-favorite-dv">
                                                     <ion-button class="product-favorite-btn" slot="end" fill="clear">
-                                                        <ion-icon [class.is-favorite]="product.is_favorite" [class.is-favorite-disabled]="!product.is_favorite" slot="icon-only" name="heart-circle">
+                                                        <ion-icon [color]="product.is_favorite ? 'danger' : 'medium'" slot="icon-only" name="heart-circle">
                                                         </ion-icon>
                                                     </ion-button>
                                                 </div>
@@ -93,7 +93,7 @@
                         <ion-col>
                             <ion-card class="products-card">
                                 <ion-card-header class="products-header-card">
-                                    <ion-card-subtitle class="product-brand">
+                                    <ion-card-subtitle class="product-brand" color="medium">
                                         <ion-skeleton-text animated style="width: 100%; height: 2vh; margin: 4% 0;">
                                         </ion-skeleton-text>
                                     </ion-card-subtitle>

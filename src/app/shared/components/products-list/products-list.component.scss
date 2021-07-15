@@ -25,7 +25,6 @@ ion-card-content.product-content-card {
 }
 
 ion-card-subtitle.product-brand {
-    color: var(--ion-text-color-shade);
     font-family: 'Poppins-Medium';
     font-size: 0.625rem;
     line-height: 0.9375rem;
@@ -151,9 +150,14 @@ ion-col.product-price-col {
 
 ion-list.rating-list {
     padding: 0;
+    ion-icon {
+        height: 0.7125rem;
+        width: 0.75rem;
+    }
 }
 
 ion-col.rating-list-col {
+    line-height: normal;
     padding: 0;
 }
 
