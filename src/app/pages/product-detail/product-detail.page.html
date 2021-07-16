@@ -1,0 +1,122 @@
+<ion-header class="ion-no-padding ion-text-center ion-no-border">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button [routerLink]="['/tabs/home']" icon="chevron-back-outline" text=""></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid class="product-img-price-grd">
+        <ion-row>
+            <ion-col class="product-img-col">
+                <div class="circle"></div>
+                <div class="product-img-div">
+                    <ion-img class="product-img-picture" [src]="product?.product_image">
+                    </ion-img>
+                </div>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col class="product-name-col" size="8">
+                <ion-item lines="none">
+                    <ion-label class="detail-texts product-name" color="dark">{{ product?.product_name }}</ion-label>
+                </ion-item>
+            </ion-col>
+            <ion-col class="product-brand-col" size="4">
+                <ion-item lines="none">
+                    <ion-label class="detail-texts product-brand" color="medium">{{ product?.brand }}</ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+
+        <ion-row>
+            <ion-col class="rating-list-col" size="4">
+                <div>
+                    <ion-list class="rating-list">
+                        <ion-icon color="warning" slot="start" [name]="product?.score >= 1 ? 'star' : 'star-outline'">
+                        </ion-icon>
+                        <ion-icon color="warning" slot="start" [name]="product?.score >= 2 ? 'star' : 'star-outline'">
+                        </ion-icon>
+                        <ion-icon color="warning" slot="start" [name]="product?.score >= 3 ? 'star' : 'star-outline'">
+                        </ion-icon>
+                        <ion-icon color="warning" slot="start" [name]="product?.score >= 4 ? 'star' : 'star-outline'">
+                        </ion-icon>
+                        <ion-icon color="warning" slot="start" [name]="product?.score >= 5 ? 'star' : 'star-outline'">
+                        </ion-icon>
+                    </ion-list>
+                </div>
+            </ion-col>
+            <ion-col class="product-reviews-col" size="3">
+                <div>
+                    <ion-label class="detail-texts product-reviews" color="medium">{{ product?.reviews }} {{ 'reviews' | translate }}</ion-label>
+                </div>
+            </ion-col>
+            <ion-col class="product-price-detail-col" size="5">
+                <div>
+                    <ion-label class="detail-texts product-price-detail">{{ +product?.product_price | currency}}</ion-label>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid class="product-description-footer-grd">
+        <ion-row class="product-description-footer-row">
+            <ion-col class="product-description-footer-col">
+                <ion-card class="product-description-card">
+                    <ion-card-content class="product-description-card-content">
+                        <ion-grid class="ion-no-padding grid-no-padding">
+                            <ion-row>
+                                <ion-col class="ion-no-padding">
+                                    <div class="description-content-div">
+                                        <ion-item id="product-color-title-item" lines="none">
+                                            <ion-label class="detail-texts description-titles-txt" color="secondary">{{ 'colors' | translate}}</ion-label>
+                                        </ion-item>
+                                        <ion-item lines="none" id="product-color-item">
+                                            <ion-row>
+                                                <ion-col *ngFor="let color of product?.colors, let i = index">
+                                                    <ion-list id="product-color-list">
+                                                        <ion-radio [ngStyle]="{'background-color': color.hex}" [style.--color]="i === colorSelectedIndex ? 'var(--ion-color-primary-contrast)' : color.hex" [ngClass]="{'color-selected': i === colorSelectedIndex}" value="{{color.name}}" (click)="onChangeColor(i)"></ion-radio>
+                                                    </ion-list>
+                                                </ion-col>
+                                            </ion-row>
+                                        </ion-item>
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+
+                            <ion-row>
+                                <ion-col class="ion-no-padding">
+                                    <div id="description-div" class="description-content-div">
+                                        <ion-item lines="none">
+                                            <ion-label class="detail-texts description-titles-txt" color="secondary">{{ 'description' | translate}}</ion-label>
+                                        </ion-item>
+                                        <ion-item lines="none" class="description-item">
+                                            <ion-label class="detail-texts description-txt">{{product?.description}} {{product?.description}} {{product?.description}}</ion-label>
+                                        </ion-item>
+                                    </div>
+                                </ion-col>
+                            </ion-row>
+                        </ion-grid>
+                    </ion-card-content>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <div id="buttons-footer">
+        <ion-fab vertical="bottom" horizontal="start">
+            <ion-fab-button id="is-favorite" color="primary-contrast" (click)="setProductIsFavorite(product.id, !product.is_favorite)">
+                <ion-icon id="is-favorite-icon" [name]="product?.is_favorite ? 'heart' : 'heart-outline'" [color]="product?.is_favorite ? 'danger' : 'medium'"></ion-icon>
+            </ion-fab-button>
+        </ion-fab>
+
+        <ion-fab id="add-to-cart-fab" vertical="bottom" horizontal="end">
+            <ion-fab-button id="add-to-cart-fab-btn" (click)="addProductToCart(product)">
+                <ion-icon src="assets/icon/add_shopping_cart.svg"></ion-icon>
+                {{ 'addCart' | translate }}
+            </ion-fab-button>
+        </ion-fab>
+    </div>
+</ion-content>

@@ -37,7 +37,7 @@
         </ion-row>
         <ion-row>
             <ion-col class="app-product-list">
-                <app-products-list [products]="allProducts" [isLoading]="isLoading$" [isDiscover]="true" (setIsFavorite)="setIsFavorite($event)" (addToCart)="addToCart($event)"></app-products-list>
+                <app-products-list [products]="allProducts" [isLoading]="isLoading$ | async" [isDiscover]="true" (setIsFavorite)="setIsFavorite($event)" (addToCart)="addToCart($event)"></app-products-list>
             </ion-col>
         </ion-row>
     </ion-grid>
