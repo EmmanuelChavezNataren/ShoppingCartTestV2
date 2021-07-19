@@ -1,0 +1,230 @@
+ion-grid.product-img-price-grd {
+    height: 60%;
+    padding-bottom: 0;
+}
+
+div.circle {
+    background: linear-gradient( 172.08deg, rgba(var(--ion-color-primary-rgb), 0.29) 27.29%, var(--ion-color-primary-contrast) 74.62%);
+    border-radius: 50%;
+    height: 16.9375rem;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    top: 0%;
+    width: 16.9375rem;
+    z-index: 1;
+}
+
+ion-col.product-img-col {
+    height: 16.9375rem;
+}
+
+div.product-img-div {
+    display: flex;
+    height: 14.9rem;
+    justify-content: center;
+    margin: 0;
+}
+
+ion-img.product-img-picture {
+    transform: rotate(25deg);
+    z-index: 1;
+}
+
+ion-col.product-name-col {
+    display: flex;
+    justify-content: flex-start;
+    padding-bottom: 0;
+}
+
+ion-label.product-name {
+    font-family: 'Poppins-Medium';
+    font-size: 1.875rem;
+    line-height: 2.5rem;
+}
+
+ion-col.product-brand-col {
+    display: flex;
+    justify-content: flex-end;
+}
+
+ion-label.product-brand {
+    font-size: 1.25rem;
+    line-height: 2.5rem;
+    padding-bottom: 0;
+}
+
+ion-col.rating-list-col {
+    align-self: center;
+    height: min-content;
+    line-height: normal;
+    padding: 0;
+    text-align: center;
+}
+
+ion-list.rating-list {
+    padding: 0;
+    ion-icon {
+        height: 1.8125rem;
+        width: 1.25rem;
+    }
+}
+
+ion-col.product-reviews-col,
+ion-col.product-price-detail-col {
+    align-self: center;
+    padding: 0;
+    text-align: center;
+}
+
+ion-label.product-reviews {
+    font-size: 0.875rem;
+    line-height: 2.5rem;
+}
+
+.detail-texts {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+ion-label.product-price-detail {
+    color: var(--ion-color-primary);
+    font-family: 'Poppins-Bold';
+    font-size: 1.375rem;
+    line-height: 2.0625rem;
+    text-align: center;
+}
+
+ion-grid.product-description-footer-grd {
+    bottom: 0;
+    height: 40%;
+    padding: 0;
+    position: absolute;
+    width: 100%;
+}
+
+ion-row.product-description-footer-row {
+    height: 100%;
+}
+
+ion-col.product-description-footer-col {
+    height: 100%;
+    padding: 0;
+}
+
+ion-card.product-description-card {
+    --background: var(--ion-color-primary-contrast);
+    border-radius: 1.25rem 1.25rem 0 0;
+    height: 100%;
+    margin: 0;
+}
+
+ion-card-content.product-description-card-content {
+    height: 100%;
+    padding: 0.5rem 1.25rem 0 1.25rem;
+}
+
+#product-color-title-item {
+    display: flex;
+    height: 1.6875rem;
+}
+
+#product-color-item {
+    --inner-padding-end: 0;
+    --min-height: 2rem;
+    display: flex;
+    height: 2.0rem;
+}
+
+.color-selected {
+    box-shadow: 0px 1px 3px 1px rgba(var(--ion-color-dark-rgb), 0.25);
+}
+
+#product-color-list {
+    background: var(--ion-color-primary-contrast);
+    display: contents;
+    height: 1.0625rem;
+    padding: 0;
+    width: 1.0625rem;
+    ion-radio {
+        border-color: transparent;
+        border-radius: 50%;
+        height: inherit;
+        margin: 0;
+        margin-right: 1rem;
+        width: inherit;
+    }
+}
+
+div.description-content-div {
+    display: flex;
+    flex-direction: column;
+    ion-item {
+        --background: var(--ion-color-primary-contrast);
+        --padding-end: 0;
+        --padding-start: 0;
+    }
+}
+
+#description-div {
+    height: 80%;
+}
+
+ion-item.description-item {
+    height: 43%;
+    overflow-y: auto;
+}
+
+ion-label.description-titles-txt {
+    display: contents;
+    font-size: 0.875rem;
+    line-height: 2.5rem;
+}
+
+ion-label.description-txt {
+    color: var(--ion-color-medium-shade);
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+#is-favorite {
+    --box-shadow: 0px 5px 20px 3px rgba(var(--ion-color-dark-rgb), 0.2);
+    height: 3.9375rem;
+    margin-bottom: 0.625rem;
+    margin-left: 0.625rem;
+    width: 3.9375rem;
+}
+
+#is-favorite-icon {
+    height: 1.75rem;
+    width: 1.875rem;
+}
+
+#add-to-cart-fab {
+    height: 3.4375rem;
+    margin-bottom: 0.875rem;
+    margin-right: 0.625rem;
+    width: 16.8125rem;
+}
+
+#add-to-cart-fab-btn {
+    --border-radius: 3.125rem;
+    font-family: 'Raleway-Bold';
+    font-size: 1.125rem;
+    height: 100%;
+    line-height: 1.3125rem;
+    width: 100%;
+}
+
+#buttons-footer {
+    background: linear-gradient( 0deg, rgba(var(--ion-color-secondary-contrast-rgb), 0) 0%, rgba(var(--ion-color-secondary-contrast-rgb), 91%) 74.48%);
+    bottom: 0;
+    height: 6.25rem;
+    position: absolute;
+    width: 100%;
+    z-index: 100;
+}

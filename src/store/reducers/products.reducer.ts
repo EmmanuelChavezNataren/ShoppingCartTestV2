@@ -76,13 +76,7 @@ const productsReducer = createReducer(
         isLoading: false,
         succeeded: true,
         shoppingCart: {
-            products: [
-                ...state.shoppingCart.products,
-                {
-                    ...action.product,
-                    color: action.product.colors[0]
-                }
-            ],
+            products: [...state.shoppingCart.products, {...action.product}] ,
             shipping: state.shoppingCart.shipping,
             subtotal: state.shoppingCart.subtotal,
             total: state.shoppingCart.total

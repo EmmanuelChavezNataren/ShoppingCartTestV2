@@ -21,7 +21,7 @@ export class HomePage implements OnInit, OnDestroy {
   isLoading$: Observable<boolean>;
   allProducts: Product[];
   shoppingCart: ShoppingCart;
-  shoppingCartLength: number = 0;
+  shoppingCartLength = 0;
 
 
   constructor(
@@ -56,7 +56,7 @@ export class HomePage implements OnInit, OnDestroy {
     this.subs.unsubscribe();
   }
 
-  setIsFavorite(favorite: { productId: number, isFavorite: boolean }) {
+  setIsFavorite(favorite: { productId: number; isFavorite: boolean }) {
     this.productsFacade.setIsFavorite(favorite.productId, favorite.isFavorite);
     if (favorite.isFavorite) {
       this.utilities.showMessage('Producto agregado correctamente', this.utilities.translate('addCartMessage'));
@@ -64,7 +64,9 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   addToCart(product: Product) {
-    this.productsFacade.addToShoppingCart(product);
+    const cartProduct = { ...product, color: product.colors[0] };
+    delete cartProduct.colors;
+    this.productsFacade.addToShoppingCart(cartProduct);
     this.utilities.showMessage('Producto agregado correctamente', this.utilities.translate('addCartMessage'));
   }
 

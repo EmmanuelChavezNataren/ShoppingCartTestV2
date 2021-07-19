@@ -57,7 +57,7 @@ p.user-firstname {
 }
 
 span.user-lastname {
-    color: var(--ion-text-color-contrast);
+    color: var(--ion-color-light);
     font-family: "Raleway";
     font-size: 2.25rem;
     font-weight: 400;
@@ -89,7 +89,7 @@ ion-col.my-favorites-col {
 }
 
 ion-fab-button.favorite-icon {
-    --background: var(--ion-text-color-contrast);
+    --background: var(--ion-color-light);
     --box-shadow: none;
     height: 1.938rem;
     margin: 0;
@@ -116,7 +116,7 @@ ion-button.logout {
 }
 
 ion-icon.detail {
-    background-color: var(--ion-text-color-contrast);
+    background-color: var(--ion-color-light);
     border-radius: 0.4375rem;
     height: 1.93rem;
     margin: 0;

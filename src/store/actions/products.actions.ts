@@ -51,5 +51,5 @@ export const addToShoppingCart = createAction(
 
 export const setIsFavorite = createAction(
   ActionTypes.isFavoriteProduct,
-  props<{ productId: number, isFavorite: boolean }>()
+  props<{ productId: number; isFavorite: boolean }>()
 );

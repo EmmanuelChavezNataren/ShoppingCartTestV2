@@ -1,9 +1,6 @@
-import { NavigationExtras, Router } from '@angular/router';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Observable } from 'rxjs';
+import { NavigationExtras, Router } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
-
-import { UtilitiesService } from '../../../services/utilities.service';
 
 
 
@@ -23,11 +20,11 @@ export class ProductsListComponent implements OnInit {
   @Output()
   addToCart = new EventEmitter<Product>();
 
-  isOpenAddCartList: Array<boolean> = new Array<boolean>(true);
+  isOpenAddCartList: Array<boolean> = new Array<boolean>();
 
   constructor(
     private router: Router,
-    ) { }
+  ) { }
 
   ngOnInit() {
   }
