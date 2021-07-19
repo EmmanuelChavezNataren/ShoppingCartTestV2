@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Toast } from '@ionic-native/toast/ngx';
-import { AlertController, LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController, ToastController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { StorageItems } from 'src/app/models/enums/storage.enum';
 
@@ -17,7 +16,7 @@ export class UtilitiesService {
   constructor(
     private loadingCtrl: LoadingController,
     private translateService: TranslateService,
-    private toast: Toast,
+    public toastCtrl: ToastController,
     private alertCtrl: AlertController,
     private storage: StorageService
   ) { }
@@ -133,21 +132,22 @@ export class UtilitiesService {
    * @param defaultMessage Mensaje por defecto en caso de no encontrar la clave de traducci&oacute;n
    * @param translateKey Clave del mensaje pra traducci&oacute;n
    * @param duration Duraci&oacute;n del mensaje por defecto es 2000 ms
-   * @param position Posici&oacute;n del mensaje, por defecto se muestra en el centro
+   * @param position Posici&oacute;n del mensaje, por defecto se muestra en bottom 'top' | 'bottom' | 'middle';
    */
-  public showMessage(defaultMessage: string, translateKey?: string, duration?: string, position?: string, params?: any): void {
-    const time: string = undefined === duration ? '3000' : duration;
-    const pos = undefined === position ? 'center' : position;
-    let message = '';//this.translate(translateKey);
+  async showMessage(defaultMessage: string, translateKey?: string,
+    duration?: number, position?: 'top' | 'bottom' | 'middle', params?: any) {
+    const time: number = undefined === duration ? 3000 : duration;
+    const pos: 'top' | 'bottom' | 'middle' = undefined === position ? 'bottom' : position;
+    let message = defaultMessage;
     if (translateKey !== undefined && null != translateKey && '' !== translateKey) {
       message = this.translate(translateKey, params);
     }
-    this.toast.show(message ? message : defaultMessage, time, pos).subscribe(
-      toast => {
-      }, error => {
-        console.error('No se puede mostrar Toast:' + JSON.stringify(error));
-      }
-    );
+    const toast = await this.toastCtrl.create({
+      message,
+      duration: time,
+      position: pos
+    });
+    toast.present();
   }
 
   showBasicAlert(title: string, subTitle: string, buttonSuccessTitle: string, buttonAction?: () => void) {
