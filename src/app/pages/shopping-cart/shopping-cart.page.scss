@@ -68,12 +68,12 @@ p.shopping-cart-prod-info {
 }
 
 p.shopping-cart-prod-name {
-    color: var(--ion-text-color);
+    color: var(--ion-color-secondary);
     font-weight: 500;
 }
 
 p.shopping-cart-prod-color {
-    color: var(--ion-text-color-shade);
+    color: var(--ion-color-medium);
 }
 
 ion-col.shopping-cart-price-col {
@@ -89,10 +89,6 @@ ion-button.shopping-cart-delete-btn {
     --padding-end: 0;
     --padding-start: 0;
     font-size: 1rem;
-}
-
-ion-icon.shopping-cart-delete-icon {
-    color: var(--ion-text-color-shade);
 }
 
 ion-row.payment-detail-row {
@@ -118,7 +114,7 @@ div.payment-detail-down-div {
 }
 
 ion-icon.payment-detail-down-icon {
-    --color: var(--ion-text-color-shade);
+    --color: var(--ion-color-medium);
     font-size: 2.375rem;
 }
 
@@ -142,7 +138,7 @@ ion-card-content.payment-detail-card-content {
 }
 
 .payment-detail-subtitle {
-    --color: var(--ion-text-color-shade);
+    --color: var(--ion-color-medium);
     text-align: start;
 }
 

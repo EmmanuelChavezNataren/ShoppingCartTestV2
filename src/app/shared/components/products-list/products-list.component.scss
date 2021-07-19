@@ -219,9 +219,9 @@ p.add-to-favorites-txt {
 }
 
 ion-fab-button.close-add-section-fab {
-    --background: rgba(var(--ion-text-color-rgb), 0.2);
+    --background: rgba(var(--ion-color-background-medium-rgb), 0.2);
     --box-shadow: 0;
-    --color: var(--ion-text-color-shade);
+    --color: var(--ion-color-medium);
     height: 1.5625rem;
     width: 1.5625rem;
 }
